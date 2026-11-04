@@ -1,0 +1,20 @@
+/* Base de Lucha. No modifica body ni componentes por sí sola. */
+:root {
+  /* Colores del material de marca documentado. */
+  --lucha-blue: #15528d;
+  --lucha-green: #b4e280;
+  --lucha-green-secondary: #76c58a;
+
+  /* Valores de interfaz de partida, adaptables al proyecto. */
+  --lucha-surface: #fff;
+  --lucha-border: #dedede;
+  --lucha-focus: #444;
+  --lucha-selection-background: var(--lucha-green);
+  --lucha-selection-foreground: #102747;
+  --lucha-card-radius: 14px;
+  --lucha-menu-row: 32px;
+  --lucha-touch-target: 44px;
+
+  /* Referencia del banner «¿Te sumas?», opcional según composición. */
+  --lucha-banner-gradient: linear-gradient(167deg, #0469b6, #03508a 51%, #000);
+}
