@@ -1,9 +1,9 @@
 ---
-name: lucha-web
+name: identidad-lucha
 description: Crear, modificar o revisar interfaces web de Lucha conservando su identidad visual, estilo de escritura y criterios de interfaz. Usar para webs, landing pages, portales y aplicaciones identificados como productos de Lucha. No aplicar a otras marcas ni a tareas de backend sin impacto en la interfaz.
 ---
 
-# Webs de Lucha
+# Identidad de Lucha
 
 Mantener una identidad reconocible entre productos de Lucha, adaptando la composición al propósito de cada web. No convertir las pantallas de Huascarán en una plantilla obligatoria para todos los proyectos.
 

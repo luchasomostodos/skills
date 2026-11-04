@@ -1,95 +1,97 @@
-# Skills de Lucha
+# Lucha como Skill
 
-Biblioteca del equipo para conservar criterios de Lucha entre proyectos, creada el 4 de noviembre de 2026. Repositorio central: [luchasomostodos/skills](https://github.com/luchasomostodos/skills). Cada proyecto o integrante elige cómo instalarla; publicar la biblioteca no la instala automáticamente.
+Biblioteca del equipo para mantener la identidad de Lucha y los lineamientos de sus proyectos. Repositorio central: [luchasomostodos/skills](https://github.com/luchasomostodos/skills).
 
-## Organización recomendada
+## Qué hay en cada carpeta
 
-Mantener skills por capacidad reutilizable y documentación por proyecto:
+| Carpeta | Para qué sirve |
+| --- | --- |
+| [identidad-lucha](identidad-lucha/README.md) | Skill compartido de identidad visual, escritura y criterios de interfaz para futuras webs de Lucha |
+| [huascaran](huascaran/README.md) | Skills propios de Huascarán, comenzando por sus restricciones de interfaz |
 
-| Nivel | Qué contiene | Dónde vive |
-| --- | --- | --- |
-| Compartido | Identidad, escritura y criterios de interfaz de Lucha | `lucha-web/` en esta biblioteca |
-| Proyecto | Módulos, permisos, estados, flujos y medidas particulares | `AGENTS.md` y documentación del producto |
-| Procedimiento específico | Un trabajo repetible que necesite su propia guía | Un skill nuevo cuando exista ese procedimiento |
-
-No crear un skill por cada proyecto solo para guardar contexto. Si Huascarán tiene un procedimiento repetido de mantenimiento o publicación de memos, ese procedimiento podría justificar un skill propio; sus decisiones de interfaz actuales ya tienen documentación de proyecto.
+Cada carpeta tiene un `README.md` para el equipo. Cada skill tiene además un `SKILL.md`, que contiene las instrucciones que lee el agente. Los README explican la organización; los SKILL dirigen el trabajo.
 
 ```text
 lucha-skills/
 ├── README.md
 ├── install.sh
-├── templates/
-│   └── AGENTS.lucha.md
-└── lucha-web/
-    ├── SKILL.md
-    ├── agents/openai.yaml
-    ├── references/
-    │   ├── identidad.md
-    │   └── interfaces.md
-    └── assets/
-        ├── tokens.css
-        ├── lucha-logo-blue.png
-        ├── lucha-logo-white.png
-        └── lucha-favicon.png
+├── identidad-lucha/
+│   ├── README.md
+│   ├── SKILL.md
+│   ├── agents/        # Configuración de presentación del skill
+│   ├── references/    # Identidad y criterios de interfaz
+│   └── assets/        # Logos y variables CSS
+└── huascaran/
+    ├── README.md
+    └── interfaz-huascaran/
+        ├── README.md
+        ├── SKILL.md
+        ├── agents/
+        └── references/
 ```
 
-La estructura se inspira en [Jibaru/skills](https://github.com/Jibaru/skills): carpetas independientes por capacidad, `SKILL.md` y recursos de apoyo, con instalación desde una biblioteca central. No se copiaron sus instrucciones de diseño ni sus scripts. Su instalador general consultado apunta a Claude Code; este paquete permite elegir Codex o Claude.
+Las carpetas de recursos también incluyen su propio README. La organización parte de la práctica de [Jibaru/skills](https://github.com/Jibaru/skills), adaptada a una biblioteca compartida y a carpetas por proyecto.
 
 ## Instalar en Mac o Linux
 
-Clonar el repositorio con una cuenta que tenga acceso:
+Clonar con una cuenta que tenga acceso al repositorio:
 
 ```sh
 git clone https://github.com/luchasomostodos/skills.git lucha-skills
 cd lucha-skills
 ```
 
-Ejecutar desde esta carpeta. El instalador copia los archivos cuando se elige un proyecto y crea enlaces simbólicos en instalación personal. No descarga dependencias ni ejecuta contenido remoto. Antes de cambiar nada se puede usar `--dry-run`.
-
-Para Codex, solo en un proyecto existente:
+Instalar la identidad compartida en una web de Lucha:
 
 ```sh
-bash install.sh --agent codex --project "/ruta/al/proyecto" --dry-run
-bash install.sh --agent codex --project "/ruta/al/proyecto"
+bash install.sh --agent codex --project "/ruta/a/la/web" --skill identidad-lucha --dry-run
+bash install.sh --agent codex --project "/ruta/a/la/web" --skill identidad-lucha
 ```
 
-Para Codex en la cuenta personal, disponible desde distintos proyectos:
+Para Huascarán, instalar ambos skills:
 
 ```sh
-bash install.sh --agent codex
+bash install.sh --agent codex --project "/ruta/a/huascaran" --skill identidad-lucha --skill interfaz-huascaran
 ```
 
-El destino de Codex es `.agents/skills/` dentro del proyecto, o `~/.agents/skills/` en instalación personal. La documentación oficial describe esos alcances y el soporte de enlaces simbólicos: [skills en Codex](https://learn.chatgpt.com/docs/build-skills).
+El instalador encuentra también los skills dentro de carpetas de proyecto. Sin `--skill`, instala todos los de la biblioteca. Cambiar `--agent codex` por `--agent claude` permite instalar para Claude Code.
 
-Para Claude Code:
+Con `--project` se copian los archivos a `.agents/skills/` para Codex o `.claude/skills/` para Claude. Las copias pueden versionarse con el proyecto y sus cambios se revisan allí. Sin `--project`, se crean enlaces personales en `~/.agents/skills/` o `~/.claude/skills/`, que siguen los cambios de esta biblioteca local. No mover la biblioteca mientras se utilicen esos enlaces.
 
-```sh
-bash install.sh --agent claude --project "/ruta/al/proyecto"
-# Omitir --project para usar ~/.claude/skills/.
-```
+`--dry-run` muestra los destinos sin escribir. Una instalación idéntica se conserva; una distinta no se sobrescribe. Si ya instalaste `lucha-web`, reemplaza esa instalación anterior al migrar a `identidad-lucha`; el instalador no la elimina automáticamente.
 
-Se recomienda empezar por instalación de proyecto: el alcance queda claro y la copia real de `.agents/skills/lucha-web/` puede versionarse junto con el código para el equipo. La instalación personal también es válida; la descripción del skill limita su uso a interfaces de Lucha. Un archivo guardado en esta biblioteca no se activa en todos los equipos por sí solo.
+Publicar o clonar la biblioteca no instala los skills por sí solo. [Alcances de skills en Codex](https://learn.chatgpt.com/docs/build-skills).
 
-La instalación personal sigue los cambios de la biblioteca mediante un enlace local. No mover ni borrar la biblioteca mientras existan esos enlaces. Las copias de proyecto son instantáneas y sus cambios se revisan y versionan dentro del proyecto; no se actualizan automáticamente al editar esta biblioteca. El instalador reconoce instalaciones idénticas y rechaza sobrescribir otras distintas. No hay sincronización automática de equipo.
+## Usarlos
 
-## Uso y reglas permanentes
-
-En Codex se puede pedir explícitamente:
+Ejemplos de pedidos en Codex:
 
 ```text
-Usa $lucha-web para crear esta landing de Lucha.
+Usa $identidad-lucha para diseñar esta landing de Lucha.
+Usa $interfaz-huascaran para modificar el detalle de misión de Huascarán.
 ```
 
-El skill también permite selección automática cuando el pedido coincide con su descripción; no equivale a una carga obligatoria en todas las tareas. Para dejar reglas permanentes en un proyecto de Codex, incorporar el bloque de `templates/AGENTS.lucha.md` a su `AGENTS.md`, conservando las instrucciones existentes. [Referencia de instrucciones de proyecto](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
+Un skill puede seleccionarse por su descripción o invocarse explícitamente. Para que las reglas de identidad estén presentes al trabajar en una web, añadir este bloque al `AGENTS.md` del proyecto, conservando sus instrucciones existentes:
 
-Para Claude Code, incorporar las reglas equivalentes a las instrucciones del proyecto que ese agente utilice; no asumir que lee `AGENTS.md` por tener instalado el skill.
+```markdown
+## Identidad de Lucha
 
-## Mantener la biblioteca
+Al crear o modificar interfaces de este proyecto, aplicar el skill identidad-lucha.
+Usar textos en estilo oración, sin mayúsculas decorativas ni rayas largas.
+Mantener bordes y sombras neutros, foco visible, logos auténticos y paleta de Lucha.
+Conservar controles compactos y áreas táctiles de al menos 44 px.
+Las reglas funcionales y las medidas específicas viven en la documentación de este proyecto.
+```
 
-- Editar las reglas en su fuente compartida y describir su alcance.
-- Separar identidad documentada, preferencias del usuario y decisiones locales. El detalle de esa distinción está en `lucha-web/references/identidad.md`.
-- Crear un skill nuevo cuando resuelva una capacidad distinta y repetida. No separar cada color, componente o regla en otro skill.
-- Conservar `SKILL.md` breve y llevar detalles a referencias o activos.
-- Mantener esta biblioteca separada del código de un producto y revisar sus cambios en este repositorio compartido.
+El bloque es un ejemplo para incorporar a las instrucciones del proyecto; no se necesita una carpeta adicional de plantillas. [Instrucciones de proyecto en Codex](https://learn.chatgpt.com/docs/agent-configuration/agents-md).
 
-La recopilación completa de Huascarán permanece en su proyecto, en `docs/restricciones-huascaran.md`. No se distribuyen en este paquete sus reglas funcionales, datos personales ni copias privadas.
+Para Claude, incorporar las reglas equivalentes a las instrucciones que utilice ese agente; no asumir que lee `AGENTS.md` por instalar un skill.
+
+## Mantener esta biblioteca
+
+- La identidad compartida vive en `identidad-lucha/`; las particularidades de Huascarán, en `huascaran/`.
+- Al añadir otro proyecto, crear su carpeta con README y los skills que necesite.
+- Cada nuevo skill necesita su propio nombre único y `SKILL.md`. No usar el mismo nombre para skills diferentes aunque estén en carpetas distintas.
+- Separar reglas confirmadas, medidas de referencia y decisiones históricas reemplazadas.
+- Mantener `SKILL.md` breve y enlazar los detalles desde sus referencias.
+- Añadir un `README.md` a cada nueva carpeta, incluidos sus recursos.
