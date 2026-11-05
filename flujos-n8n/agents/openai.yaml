@@ -1,0 +1,3 @@
+interface:
+  display_name: "Flujos n8n de Lucha"
+  short_description: "Estándar para crear y revisar workflows en el n8n de Lucha"
