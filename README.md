@@ -46,7 +46,7 @@ Las carpetas de recursos también incluyen su propio README. La organización pa
 
 ## Instalar en Mac o Linux
 
-Clonar con una cuenta que tenga acceso al repositorio:
+Clona la biblioteca pública con Git.
 
 ```sh
 git clone https://github.com/luchasomostodos/skills.git lucha-skills
@@ -121,3 +121,16 @@ Para Claude, incorporar las reglas equivalentes a las instrucciones que utilice 
 - Separar reglas confirmadas, medidas de referencia y decisiones históricas reemplazadas.
 - Mantener `SKILL.md` breve y enlazar los detalles desde sus referencias.
 - Añadir un `README.md` a cada nueva carpeta, incluidos sus recursos.
+
+### Comprobar el instalador
+
+Desde la raíz de la biblioteca, comprueba la sintaxis y simula la instalación en una carpeta temporal.
+
+```sh
+bash -n install.sh
+proyecto_prueba=$(mktemp -d)
+bash install.sh --agent codex --project "$proyecto_prueba" --dry-run
+rmdir "$proyecto_prueba"
+```
+
+La simulación muestra un destino bajo `.agents/skills/` para cada skill de la biblioteca, incluido `interfaz-huascaran`, que vive dentro de `huascaran/`. La carpeta temporal queda vacía.
