@@ -1,0 +1,23 @@
+{
+  "skill_name": "saboteadores",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analiza el perfil de saboteadores de Diego, el CEO de Orbe, para la Dim 08 del entendimiento luchante. Te adjunto su Saboteur Assessment y su Grit.",
+      "expected_output": "Lectura con lente de founder de los top saboteadores (Restless/Stickler/Hyper-Rational), PQ marcado como inferido (no hay número), cruce con Grit 84 y veto, bandera Dim 08 y recomendación para coaching.",
+      "files": ["evals/inputs/eval1-saboteur-assessment-founder.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "No tengo el test de saboteadores de este founder, pero te paso el transcript de la reunion. Sacame una lectura de sus saboteadores para Bienestar.",
+      "expected_output": "Inferencia tentativa marcada como tal; detecta Controller, Avoider y Restless con quotes literales; lente founder; PQ inferido; bandera.",
+      "files": ["evals/inputs/eval2-founder-transcript.txt"]
+    },
+    {
+      "id": 3,
+      "prompt": "Aca estan los Saboteur Assessments de los tres co-founders de Orbe. Comparalos y dime que dinamica de equipo se lee.",
+      "expected_output": "Seccion por co-founder, perfiles comparados (Joaquín el mas intenso, Controller comun), dinamica de equipo / complementariedad o choque, conexion con Dim 06.",
+      "files": ["evals/inputs/eval3-cofounders-profiles.md"]
+    }
+  ]
+}

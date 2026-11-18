@@ -1,0 +1,46 @@
+/* simulador de drivers del negocio, Dim 02 */
+.drv{margin-top:22px;border:1px solid var(--lineW);border-radius:14px;background:var(--card2);padding:20px 22px}
+.drv-intro{font-size:13px;color:var(--mut);margin:6px 0 16px;max-width:none}
+.drv-res{position:sticky;top:calc(var(--navh,62px) + var(--dxbar,52px) + 12px);z-index:5;background:var(--card2);padding:8px 0 4px}
+.drv-outs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.drv-k{background:var(--card);border:1px solid var(--lineW);border-top:3px solid var(--lineW);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.drv-k b{font-size:24px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15}
+.drv-d{font-size:12px;color:var(--mut);font-variant-numeric:tabular-nums}
+.drv-why{font-size:12px;margin-top:4px;color:var(--sgT)}
+.drv-k.r{border-top-color:var(--srD)}.drv-k.r b,.drv-k.r .drv-why{color:var(--srT)}
+.drv-k.g{border-top-color:var(--sgD)}
+.drv-link{align-self:flex-start;margin-top:4px;font:inherit;font-size:12px;color:var(--azul);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.drv-qt{margin-top:14px;background:var(--card);border:1px solid var(--lineW);border-left:3px solid var(--tealB);border-radius:12px;padding:16px 18px}
+.drv-qt ol{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.drv-dot{display:inline-block;width:8px;height:8px;border-radius:99px;margin-right:6px;vertical-align:1px}
+.drv-dot.g{background:var(--sgD)}.drv-dot.r{background:var(--srD)}
+.drv-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.drv-b{font:inherit;font-size:12.5px;font-weight:500;border-radius:999px;padding:8px 15px;cursor:pointer;border:1px solid var(--lineW);background:var(--card);color:var(--ink);box-shadow:var(--sh)}
+.drv-b.dk{background:var(--ink);color:var(--mint);border-color:var(--ink)}
+.drv-dh{margin:24px 0 12px;border-top:1px solid var(--lineW);padding-top:18px}
+.drv-leg{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin-top:8px}
+.drv-leg i{display:inline-block;width:10px;height:10px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.drv-leg .k-mo{background:var(--ink)}.drv-leg .k-ob{background:var(--rosa)}.drv-leg .k-l{background:var(--mint)}
+.drv-rows{display:flex;flex-direction:column;gap:12px}
+.drv-r{background:var(--card);border:1px solid var(--lineW);border-radius:12px;padding:14px 16px}
+.drv-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.drv-n{font-size:14px;font-weight:500}
+.drv-chip{font-size:10.5px;padding:3px 10px;border-radius:999px;font-weight:500}
+.drv-chip.l{background:var(--mintS);color:var(--mintT)}
+.drv-chip.m{background:var(--card2);color:var(--sub);border:1px solid var(--lineW)}
+.drv-chip.p{background:var(--syS);color:var(--syT)}
+.drv-v{margin-left:auto;font-size:20px;font-weight:500;font-variant-numeric:tabular-nums}
+.drv-sl{position:relative;margin:14px 0 6px;padding-top:16px}
+.drv-sl input{width:100%;accent-color:var(--ink);margin:0}
+.drv-mk{position:absolute;top:0;transform:translateX(-50%);font-size:10px;white-space:nowrap;font-weight:500}
+.drv-mk::after{content:'';display:block;width:2px;height:8px;margin:1px auto 0;border-radius:2px;background:currentColor}
+.drv-mk.mo{color:var(--ink)}.drv-mk.ob{color:var(--rosa)}
+.drv-ref{font-size:12.5px;color:var(--mut)}
+.drv-ref .o{color:var(--rosa)}
+.drv-pal{margin-top:10px;background:var(--mintS);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--mintT)}
+.drv-pnd{margin-top:10px;background:var(--syS);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--syT)}
+.drv-nota{margin-top:16px;border-top:1px solid var(--lineW);padding-top:14px;font-size:13px;color:var(--mut)}
+.drv-nota b{color:var(--ink)}
+@media (max-width:900px){.drv-outs{grid-template-columns:repeat(2,minmax(0,1fr))}.drv-res{position:static}}
+@media (max-width:560px){.drv{padding:16px 14px}.drv-outs{grid-template-columns:1fr}.drv-v{margin-left:0;width:100%}}
+@media print{.drv-res{position:static}.drv-sl input,.drv-acts{display:none}}

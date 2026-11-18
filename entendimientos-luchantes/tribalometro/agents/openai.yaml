@@ -1,0 +1,3 @@
+interface:
+  display_name: "Tribalómetro"
+  short_description: "Tribal Score del founder a partir de una reunión"

@@ -1,0 +1,105 @@
+<!-- @dsCard group="Portafolio" viewport="1240x1100" name="Portafolio — Tablero Legal" subtitle="Deep-dive del portafolio: 3 capas de fondo, alcance reactivo, valuación/stake Q-a-Q, gráficos por cohort y control legal." -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LuchIA — Portafolio</title>
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="port-theme.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  :root { --ease-out: cubic-bezier(.22,.61,.36,1); }
+  body { font-family: var(--font-sans); background: var(--p-canvas, hsl(40 24% 96.5%)); }
+  .pf-search { position: relative; }
+  .pf-search input { width: 240px; box-sizing: border-box; font-family: var(--font-sans); font-size: 13px; padding: 8px 12px 8px 32px; border-radius: 9px; border: 1px solid var(--p-border); background: var(--p-card); color: var(--p-ink); outline: none; }
+  .pf-search input:focus { border-color: var(--p-accent); box-shadow: 0 0 0 3px var(--p-accent-soft); }
+  .pf-search svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--p-subtle); }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script src="port-data.js"></script>
+  <script src="port-format.js"></script>
+  <script src="../mapas/mapa-data.js"></script>
+  <script type="text/babel" src="port-shell.jsx"></script>
+  <script type="text/babel" src="port-investors.jsx"></script>
+  <script type="text/babel" src="port-quarterly.jsx"></script>
+  <script type="text/babel" src="port-charts.jsx"></script>
+  <script type="text/babel" src="port-legal.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useMemo } = React;
+    const { ScopeBar, PendientesBar, KpiStrip } = window.PortShell;
+    const InvestorTable = window.PortInvestors;
+    const { ValuationQ, StakeQ } = window.PortQuarterly;
+    const PortfolioCharts = window.PortCharts;
+    const LegalSection = window.PortLegal;
+    const { empresas } = window.PORT;
+
+    function SearchIcon() {
+      return (<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>);
+    }
+
+    function App() {
+      const [scope, setScope] = useState(() => localStorage.getItem("port2-scope") || "sinCeibo");
+      const [pend, setPend] = useState(null);
+      const [q, setQ] = useState("");
+
+      const pickScope = (s) => { setScope(s); localStorage.setItem("port2-scope", s); };
+
+      const filtered = useMemo(() => {
+        const term = q.trim().toLowerCase();
+        if (!term) return empresas;
+        return empresas.filter((e) => e.nombre.toLowerCase().includes(term) || (e.vertical || "").toLowerCase().includes(term) || (e.sector || "").toLowerCase().includes(term));
+      }, [q]);
+
+      return (
+        <div className="port-root">
+          <nav className="equipo-nav">
+            <a className="logo" href="../impato/index.html"><span className="sq">L</span><span className="nm">LuchIA</span><span className="eq">Equipo</span></a>
+            <div className="links">
+              <a href="../kpis/index.html">KPIs</a>
+              <a href="#" className="active">Portafolio</a>
+              <a href="../mapas/index.html">Mapas Luchantes</a>
+            </div>
+            <div className="avatar">LV</div>
+          </nav>
+
+          <div className="port-page">
+            <div className="port-head">
+              <div>
+                <p className="p-eyebrow">Tablero Legal · Impact Studio</p>
+                <h1>Portafolio</h1>
+                <div className="ph-sub">Posición de LUCHA en {empresas.length} empresas · valuación y stake Q a Q · estado legal de cada deal</div>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
+                <div className="pf-search"><SearchIcon /><input placeholder="Buscar empresa…" value={q} onChange={(e) => setQ(e.target.value)} /></div>
+                <span className="assume-note"><span className="d" />Dilución no aplicada · cifras de referencia · USD · Q1’24 → Q2’26</span>
+              </div>
+            </div>
+
+            <ScopeBar scope={scope} setScope={pickScope} />
+            <KpiStrip scope={scope} />
+
+            <InvestorTable empresas={filtered} scope={scope} />
+            <ValuationQ empresas={filtered} />
+            <StakeQ empresas={filtered} scope={scope} />
+            <PortfolioCharts empresas={filtered} scope={scope} setScope={pickScope} />
+            <PendientesBar pend={pend} setPend={setPend} />
+            <LegalSection empresas={filtered} pend={pend} />
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+  <script src="../theme-toggle.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!-- @dsCard group="Mapas Luchantes" viewport="1240x1200" name="Mapas Luchantes — Dashboard índice + Ficha" subtitle="La segunda lente sobre las 15 empresas: matriz de decisión, mapa LatAm real, live feed, heatmap de 7 dimensiones, y el canvas tipo BMC de cada ficha." -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LuchIA — Mapas Luchantes</title>
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="../portafolio/port-theme.css" />
+<link rel="stylesheet" href="mapa-theme.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  :root { --ease-out: cubic-bezier(.22,.61,.36,1); }
+  body { font-family: var(--font-sans); background: var(--p-canvas, hsl(40 24% 96.5%)); }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+
+  <script src="../portafolio/port-data.js"></script>
+  <script src="../portafolio/port-format.js"></script>
+  <script src="mapa-data.js"></script>
+  <script type="text/babel" src="../portafolio/port-shell.jsx"></script>
+  <script type="text/babel" src="mapa-dashboard.jsx"></script>
+  <script type="text/babel" src="mapa-metrics.jsx"></script>
+  <script type="text/babel" src="mapa-ficha.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const { MapasDashboard, FloatTip } = window.MapaDashboard;
+    const MapaFicha = window.MapaFicha;
+    const PORT = window.PORT;
+
+    function App() {
+      const [view, setView] = useState("dash"); // dash | ficha
+      const [sel, setSel] = useState(null);
+
+      useEffect(() => {
+        const fromHash = () => {
+          const id = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+          if (id && PORT.byId[id]) { setSel(id); setView("ficha"); }
+        };
+        fromHash();
+        window.addEventListener("hashchange", fromHash);
+        return () => window.removeEventListener("hashchange", fromHash);
+      }, []);
+
+      const openFicha = (id) => { setSel(id); setView("ficha"); history.replaceState(null, "", "#" + id); window.scrollTo(0, 0); };
+      const backToDash = () => { setView("dash"); history.replaceState(null, "", window.location.pathname); window.scrollTo(0, 0); };
+
+      const selName = sel && PORT.byId[sel] ? PORT.byId[sel].nombre : "";
+
+      return (
+        <div className="port-root">
+          <nav className="equipo-nav">
+            <a className="logo" href="../impato/index.html"><span className="sq">L</span><span className="nm">LuchIA</span><span className="eq">Equipo</span></a>
+            <div className="links">
+              <a href="../kpis/index.html">KPIs</a>
+              <a href="../portafolio/index.html">Portafolio</a>
+              <a href="#" className="active">Mapas Luchantes</a>
+            </div>
+            <div className="avatar">LV</div>
+          </nav>
+
+          <div className="port-page">
+            <div className="port-head">
+              <div>
+                <p className="p-eyebrow">Panel de salud · Impact Studio</p>
+                <h1>Mapas Luchantes</h1>
+                <div className="ph-sub">Evaluación 360 en 7 dimensiones sobre las {PORT.empresas.length} empresas · una sola fuente, tres niveles de zoom</div>
+              </div>
+              <span className="assume-note"><span className="d" />Semáforo: verde ≥70 · amarillo 55–69 · rojo &lt;55 · gris s/d · corte Q1’26</span>
+            </div>
+
+            <div className="mp-tabs">
+              <button className="mp-tab" data-active={view === "dash"} onClick={backToDash}>
+                <span className="mt-dot" style={{ background: view === "dash" ? "var(--p-ink)" : "var(--p-faint)" }} />Dashboard índice
+              </button>
+              {view === "ficha" && (
+                <button className="mp-tab" data-active={true}>
+                  <span className="mt-dot" style={{ background: "var(--p-mint)" }} />Ficha · {selName}
+                </button>
+              )}
+            </div>
+
+            {view === "dash"
+              ? <MapasDashboard onSelect={openFicha} />
+              : <MapaFicha id={sel} onBack={backToDash} onNav={openFicha} />}
+          </div>
+
+          <FloatTip />
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+  <script src="../theme-toggle.js"></script>
+</body>
+</html>

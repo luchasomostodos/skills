@@ -1,0 +1,3 @@
+interface:
+  display_name: "Saboteadores"
+  short_description: "Lectura de saboteadores y PQ del founder"

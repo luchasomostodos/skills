@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUCHA · Control Tower (LuchIA) — Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Tokens (light + dark), inlined so el archivo es self-contained ===== */
+:root{
+  --color-bg:hsl(40 24% 96.5%);--color-surface-card:#fff;--color-surface-card-2:hsl(40 26% 98.4%);
+  --color-surface-muted:hsl(40 26% 95%);--color-hover:hsl(40 26% 95%);
+  --color-border:hsl(38 16% 88%);--color-hairline:hsl(38 15% 91.5%);
+  --color-fg:#0e1c2b;--color-text-muted:hsl(212 12% 42%);--color-text-subtle:hsl(212 12% 62%);--color-faint:hsl(212 14% 78%);
+  --color-primary:#0e1c2b;--color-primary-fg:#fff;--color-secondary:hsl(40 26% 95%);--color-ring:#0e1c2b;--color-destructive:hsl(0 72% 51%);
+  --brand-ink:#0e1c2b;--brand-mint:#8fe2a1;--brand-azul:#1c3e8e;--brand-verde:#6ed48e;--brand-forest:#2d5749;--brand-rosa:#f0316a;
+  --chart-1:#1c5d9e;--chart-2:#3a9d9b;--chart-3:#84d094;
+  --semaforo-verde:hsl(160 84% 39%);--semaforo-amarillo:hsl(43 96% 56%);--semaforo-rojo:hsl(347 77% 60%);--semaforo-gris:hsl(240 5% 65%);
+  --semaforo-verde-text:hsl(161 94% 30%);--semaforo-amarillo-text:hsl(38 92% 40%);--semaforo-rojo-text:hsl(347 77% 50%);--semaforo-gris-text:hsl(240 4% 46%);
+  --semaforo-verde-soft:hsl(152 76% 96%);--semaforo-amarillo-soft:hsl(48 96% 89%);--semaforo-rojo-soft:hsl(356 100% 95%);--semaforo-gris-soft:hsl(240 5% 96%);
+  --font-sans:"MADE Tommy Soft","Quicksand",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fw-light:300;--fw-normal:400;--fw-medium:500;
+  --text-2xs:10px;--text-xs:12px;--text-sm:14px;--text-base:16px;--text-lg:18px;--text-xl:20px;--text-2xl:24px;--text-3xl:30px;--text-5xl:48px;
+  --tracking-tight:-.02em;--tracking-wide:.05em;--tracking-wider:.1em;
+  --radius-sm:.25rem;--radius-md:.375rem;--radius-ctrl:.5625rem;--radius-lg:.875rem;--radius-xl:1rem;--radius-full:9999px;
+  --shadow-card:0 1px 2px hsl(30 30% 25% / .05),0 1px 3px -1px hsl(30 30% 25% / .04);
+  --ease-out:cubic-bezier(.16,1,.3,1);--dur:200ms;
+}
+[data-theme="dark"]{
+  --color-bg:hsl(215 28% 9%);--color-surface-card:hsl(215 24% 12.5%);--color-surface-card-2:hsl(215 22% 15.5%);
+  --color-surface-muted:hsl(215 20% 17%);--color-hover:hsl(215 20% 17%);
+  --color-border:hsl(215 16% 25%);--color-hairline:hsl(215 16% 19%);
+  --color-fg:hsl(40 18% 90%);--color-text-muted:hsl(215 12% 64%);--color-text-subtle:hsl(215 12% 48%);--color-faint:hsl(215 12% 36%);
+  --color-primary:var(--brand-mint);--color-primary-fg:hsl(215 32% 10%);--color-secondary:hsl(215 20% 17%);--color-ring:var(--brand-mint);
+  --semaforo-verde-soft:hsl(150 30% 15%);--semaforo-verde-text:hsl(150 52% 62%);
+  --semaforo-amarillo-soft:hsl(43 36% 16%);--semaforo-amarillo-text:hsl(43 78% 62%);
+  --semaforo-rojo-soft:hsl(347 32% 19%);--semaforo-rojo-text:hsl(347 74% 71%);
+  --semaforo-gris-soft:hsl(215 14% 18%);--semaforo-gris-text:hsl(215 10% 60%);
+  --shadow-card:0 1px 2px hsl(0 0% 0% / .4),0 1px 3px -1px hsl(0 0% 0% / .3);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
+body{margin:0;font-family:var(--font-sans);font-weight:var(--fw-normal);color:var(--color-fg);
+  background:var(--color-bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.6;
+  transition:background var(--dur) var(--ease-out),color var(--dur) var(--ease-out)}
+.wrap{max-width:77.5rem;margin:0 auto;padding:0 24px 72px}
+.tabular{font-variant-numeric:tabular-nums}
+
+/* the ink→mint brand signature (flips in dark) */
+.brandfill{background:var(--brand-ink);color:var(--brand-mint)}
+[data-theme="dark"] .brandfill{background:var(--brand-mint);color:hsl(215 32% 10%)}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--color-bg) 85%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--color-border);margin-bottom:30px}
+.topbar .inner{max-width:77.5rem;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:13px}
+.logo{display:inline-flex;align-items:center;gap:9px}
+.logo .sq{height:28px;width:28px;border-radius:8px;display:grid;place-items:center;font-size:13px;font-weight:var(--fw-medium)}
+.logo .nm{font-size:15px;font-weight:var(--fw-medium);letter-spacing:var(--tracking-wide)}
+.logo .eq{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-subtle)}
+.topbar .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.legend{display:flex;gap:6px}
+.toggle{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 12px;border-radius:var(--radius-full);
+  border:1px solid var(--color-border);background:var(--color-surface-card);color:var(--color-fg);
+  font-family:var(--font-sans);font-size:var(--text-xs);font-weight:var(--fw-medium);cursor:pointer}
+.toggle:hover{background:var(--color-hover)}
+.toggle svg{width:15px;height:15px}
+
+/* layout */
+.eyebrow{font-size:var(--text-2xs);font-weight:var(--fw-medium);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--color-text-muted);margin:0 0 6px}
+h1{font-size:var(--text-3xl);font-weight:var(--fw-medium);letter-spacing:var(--tracking-tight);margin:6px 0 4px}
+h2{font-size:var(--text-xl);font-weight:var(--fw-medium);letter-spacing:var(--tracking-tight);margin:0}
+.lead{color:var(--color-text-muted);font-size:var(--text-base);max-width:64ch;margin:0 0 8px}
+.mono-note{font-size:var(--text-xs);color:var(--color-text-subtle)}
+section{margin:34px 0}
+.card{border-radius:var(--radius-lg);border:1px solid var(--color-border);background:var(--color-surface-card);box-shadow:var(--shadow-card)}
+.card-h{padding:16px 22px;border-bottom:1px solid var(--color-border)}
+.card-b{padding:22px}
+.muted{color:var(--color-text-muted)}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+.sw{border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden;background:var(--color-surface-card)}
+.sw .chipc{height:52px}
+.sw .meta{padding:8px 10px}
+.sw .nm{font-size:var(--text-xs);font-weight:var(--fw-medium)}
+.sw .hex{font-size:var(--text-2xs);color:var(--color-text-subtle);text-transform:uppercase;letter-spacing:.04em}
+.blocklabel{font-size:var(--text-2xs);font-weight:var(--fw-medium);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--color-text-subtle);margin:18px 0 8px}
+.blocklabel:first-child{margin-top:0}
+
+/* semaforo */
+.sem-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(208px,1fr));gap:14px}
+.sem-card{border:1px solid var(--color-border);border-radius:var(--radius-md);padding:14px;background:var(--color-surface-card)}
+.dotline{display:inline-flex;align-items:center;gap:8px}
+.dot{height:10px;width:10px;border-radius:var(--radius-full);box-shadow:0 0 0 2px var(--color-surface-card);flex-shrink:0}
+.dot.verde{background:var(--semaforo-verde)}.dot.amarillo{background:var(--semaforo-amarillo)}
+.dot.rojo{background:var(--semaforo-rojo)}.dot.gris{background:var(--semaforo-gris)}
+.dotlabel{font-size:var(--text-xs);font-weight:var(--fw-medium);opacity:.78}
+.pill{display:inline-flex;align-items:center;border-radius:var(--radius-full);font-size:var(--text-2xs);font-weight:var(--fw-medium);padding:3px 9px;margin-top:10px}
+.pill.verde{background:var(--semaforo-verde-soft);color:var(--semaforo-verde-text)}
+.pill.amarillo{background:var(--semaforo-amarillo-soft);color:var(--semaforo-amarillo-text)}
+.pill.rojo{background:var(--semaforo-rojo-soft);color:var(--semaforo-rojo-text)}
+.pill.gris{background:var(--semaforo-gris-soft);color:var(--semaforo-gris-text)}
+.sem-rule{font-size:var(--text-xs);color:var(--color-text-subtle);margin-top:6px}
+
+/* type scale */
+.type-row{display:flex;align-items:baseline;gap:16px;padding:9px 0;border-bottom:1px dashed var(--color-hairline)}
+.type-row:last-child{border-bottom:0}
+.type-row .tag{width:120px;flex-shrink:0;font-size:var(--text-xs);color:var(--color-text-subtle);font-variant-numeric:tabular-nums}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;height:2.5rem;padding:0 1rem;
+  border-radius:var(--radius-md);font-family:var(--font-sans);font-size:var(--text-sm);font-weight:var(--fw-medium);
+  cursor:pointer;border:1px solid transparent;line-height:1;transition:background var(--dur) var(--ease-out),color var(--dur)}
+.btn:focus-visible{outline:none;box-shadow:0 0 0 2px var(--color-bg),0 0 0 4px var(--color-ring)}
+.btn--secondary{background:var(--color-secondary);color:var(--color-fg)}
+.btn--outline{border-color:var(--color-border);background:var(--color-surface-card);color:var(--color-fg)}
+.btn--outline:hover{background:var(--color-hover)}
+.btn--ghost{background:transparent;color:var(--color-fg)}.btn--ghost:hover{background:var(--color-hover)}
+.btn--destructive{background:var(--color-destructive);color:#fff}
+.btn--link{background:transparent;color:var(--color-fg);text-underline-offset:4px}.btn--link:hover{text-decoration:underline}
+.btn--sm{height:2.25rem;padding:0 .75rem;border-radius:var(--radius-sm)}
+
+/* input */
+.input{display:flex;height:2.5rem;width:100%;max-width:320px;border-radius:var(--radius-md);border:1px solid var(--color-border);
+  background:var(--color-surface-card);padding:0 .75rem;font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-fg);outline:none}
+.input::placeholder{color:var(--color-text-muted)}
+.input:focus-visible{border-color:var(--color-ring);box-shadow:0 0 0 3px color-mix(in srgb,var(--color-ring) 18%,transparent)}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;gap:.375rem;border-radius:var(--radius-full);padding:.125rem .625rem;font-size:var(--text-xs);font-weight:var(--fw-medium);line-height:1.5;white-space:nowrap}
+.badge--secondary{background:var(--color-secondary);color:var(--color-fg)}
+.badge--outline{background:transparent;color:var(--color-fg);border:1px solid var(--color-border)}
+.badge--success{background:var(--semaforo-verde-soft);color:var(--semaforo-verde-text)}
+.badge--up{font-size:var(--text-2xs);text-transform:uppercase;letter-spacing:var(--tracking-wider)}
+.specimens{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* KPI strip */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.kpi{border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:18px 20px;background:var(--color-surface-card);box-shadow:var(--shadow-card)}
+.kpi .lab{font-size:var(--text-2xs);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--color-text-muted)}
+.kpi .num{font-size:var(--text-5xl);font-weight:var(--fw-medium);letter-spacing:var(--tracking-tight);line-height:1.05;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.kpi .meta{font-size:var(--text-xs);color:var(--color-text-muted)}
+.kpi .bar{height:4px;border-radius:var(--radius-full);background:var(--color-surface-muted);margin-top:12px;overflow:hidden}
+.kpi .bar>span{display:block;height:100%;border-radius:var(--radius-full);background:var(--brand-mint)}
+
+/* dense table */
+.tablecard{border-radius:var(--radius-lg);border:1px solid var(--color-border);overflow:hidden;background:var(--color-surface-card);box-shadow:var(--shadow-card)}
+table.dense{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
+table.dense thead th{background:var(--color-surface-card-2);color:var(--color-text-muted);font-size:var(--text-2xs);
+  text-transform:uppercase;letter-spacing:var(--tracking-wide);font-weight:var(--fw-medium);text-align:left;padding:9px 14px;white-space:nowrap}
+table.dense thead th.r,table.dense td.r{text-align:right;font-variant-numeric:tabular-nums}
+table.dense tbody td{padding:11px 14px;border-top:1px solid var(--color-hairline)}
+table.dense tbody tr:hover{background:var(--color-hover)}
+table.dense .co{font-weight:var(--fw-medium)}
+table.dense tfoot td{padding:10px 14px;border-top:1.5px solid var(--color-border);background:var(--color-surface-card-2);font-weight:var(--fw-medium);font-variant-numeric:tabular-nums}
+.alc{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius-full);font-weight:var(--fw-medium);font-variant-numeric:tabular-nums;font-size:var(--text-2xs);padding:2px 8px;min-width:42px}
+.alc.verde{background:var(--semaforo-verde-soft);color:var(--semaforo-verde-text)}
+.alc.amarillo{background:var(--semaforo-amarillo-soft);color:var(--semaforo-amarillo-text)}
+.alc.rojo{background:var(--semaforo-rojo-soft);color:var(--semaforo-rojo-text)}
+
+footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--color-border);color:var(--color-text-subtle);font-size:var(--text-xs)}
+@media(max-width:760px){.kpis{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span class="logo">
+      <span class="sq brandfill" aria-hidden="true">L</span>
+      <span class="nm">LUCHA</span>
+      <span class="eq">Impact Studio · Control Tower</span>
+    </span>
+    <span class="right">
+      <span class="legend">
+        <span class="dot verde" title="Cumple"></span>
+        <span class="dot amarillo" title="Por cumplir"></span>
+        <span class="dot rojo" title="No cumple"></span>
+        <span class="dot gris" title="Sin datos"></span>
+      </span>
+      <button class="toggle" id="themeToggle" type="button" aria-label="Cambiar tema">
+        <svg id="tIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <span id="tLabel">Dark</span>
+      </button>
+    </span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Design System · LuchIA</p>
+    <h1>Sistema de marca — Cabina de control</h1>
+    <p class="lead">El lenguaje visual del backoffice interno de LUCHA Impact Studio: ink y grafito sobre papel cálido,
+      números tabulares compactos, el mint como acento firma y el semáforo como estado. Calmo, denso, curado. Sin emoji, sin negrita.</p>
+    <p class="mono-note">Tipografía de marca: MADE Tommy Soft (no incluida) · fallback: Quicksand · peso máx = Medium.</p>
+  </header>
+
+  <section>
+    <div class="card">
+      <div class="card-h"><p class="eyebrow">01 · Color</p><h2>Paleta</h2></div>
+      <div class="card-b">
+        <p class="blocklabel">Marca LUCHA</p>
+        <div class="swatches">
+          <div class="sw"><div class="chipc" style="background:var(--brand-ink)"></div><div class="meta"><div class="nm">Ink</div><div class="hex">#0e1c2b</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--brand-mint)"></div><div class="meta"><div class="nm">Mint · firma</div><div class="hex">#8fe2a1</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--brand-verde)"></div><div class="meta"><div class="nm">Verde</div><div class="hex">#6ed48e</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--brand-azul)"></div><div class="meta"><div class="nm">Azul</div><div class="hex">#1c3e8e</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--brand-forest)"></div><div class="meta"><div class="nm">Forest</div><div class="hex">#2d5749</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--brand-rosa)"></div><div class="meta"><div class="nm">Rosa · alerta</div><div class="hex">#f0316a</div></div></div>
+        </div>
+        <p class="blocklabel">Neutros · papel cálido y datos</p>
+        <div class="swatches">
+          <div class="sw"><div class="chipc" style="background:var(--color-bg);border-bottom:1px solid var(--color-border)"></div><div class="meta"><div class="nm">Canvas</div><div class="hex">papel cálido</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--color-surface-muted)"></div><div class="meta"><div class="nm">Muted</div><div class="hex">surface</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--color-border)"></div><div class="meta"><div class="nm">Border</div><div class="hex">hairline</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--chart-1)"></div><div class="meta"><div class="nm">Cohorte 1</div><div class="hex">azul</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--chart-2)"></div><div class="meta"><div class="nm">Cohorte 2</div><div class="hex">teal</div></div></div>
+          <div class="sw"><div class="chipc" style="background:var(--chart-3)"></div><div class="meta"><div class="nm">Cohorte 3</div><div class="hex">verde</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="card-h"><p class="eyebrow">02 · La firma</p><h2>Semáforo</h2></div>
+      <div class="card-b">
+        <p class="lead" style="margin-bottom:16px">El estado lo lleva un punto de color y una palabra, nunca solo el color.</p>
+        <div class="sem-row">
+          <div class="sem-card"><span class="dotline"><span class="dot verde"></span><span class="dotlabel">Cumple</span></span><div><span class="pill verde">verde</span></div><div class="sem-rule">score ≥ 70</div></div>
+          <div class="sem-card"><span class="dotline"><span class="dot amarillo"></span><span class="dotlabel">Por cumplir</span></span><div><span class="pill amarillo">amarillo</span></div><div class="sem-rule">55 – 69</div></div>
+          <div class="sem-card"><span class="dotline"><span class="dot rojo"></span><span class="dotlabel">No cumple</span></span><div><span class="pill rojo">rojo</span></div><div class="sem-rule">&lt; 55</div></div>
+          <div class="sem-card"><span class="dotline"><span class="dot gris"></span><span class="dotlabel">Sin datos</span></span><div><span class="pill gris">gris</span></div><div class="sem-rule">s/d → gris, no 0</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="card-h"><p class="eyebrow">03 · Tipografía</p><h2>Una sola familia, sin negrita (máx Medium)</h2></div>
+      <div class="card-b">
+        <div class="type-row"><span class="tag">48 · KPI hero</span><span style="font-size:48px;font-weight:500;letter-spacing:-.02em" class="tabular">71</span></div>
+        <div class="type-row"><span class="tag">30 · conteo</span><span style="font-size:30px;font-weight:500;letter-spacing:-.02em">Portafolio activo</span></div>
+        <div class="type-row"><span class="tag">24 · título</span><span style="font-size:24px;font-weight:500;letter-spacing:-.02em">Mapas Luchantes</span></div>
+        <div class="type-row"><span class="tag">20 · sección</span><span style="font-size:20px;font-weight:500">Salud del portafolio</span></div>
+        <div class="type-row"><span class="tag">14 · cuerpo</span><span style="font-size:14px;font-weight:400">Texto de tabla y párrafo, Regular 14px, cómodo y legible.</span></div>
+        <div class="type-row"><span class="tag">12 · meta</span><span style="font-size:12px;color:var(--color-text-muted)">Captions, micro-heads, metadatos</span></div>
+        <div class="type-row"><span class="tag">10 · eyebrow</span><span style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;color:var(--color-text-muted)">Eyebrow en mayúscula</span></div>
+        <p class="mono-note" style="margin-top:14px">Todo el texto de marca usa máx. Medium (500). Light (300) y Regular (400) para cuerpo. Nada más pesado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="card-h"><p class="eyebrow">04 · Componentes</p><h2>Núcleo y datos</h2></div>
+      <div class="card-b">
+        <p class="blocklabel">Botones</p>
+        <div class="specimens">
+          <button class="btn brandfill">Guardar</button>
+          <button class="btn btn--secondary">Secundario</button>
+          <button class="btn btn--outline">Outline</button>
+          <button class="btn btn--ghost">Ghost</button>
+          <button class="btn btn--destructive">Eliminar</button>
+          <button class="btn btn--link">Ver ficha</button>
+          <button class="btn brandfill btn--sm">Small</button>
+        </div>
+        <p class="blocklabel">Input</p>
+        <div class="specimens"><input class="input" placeholder="Buscar empresa…"></div>
+        <p class="blocklabel">Badges</p>
+        <div class="specimens">
+          <span class="badge brandfill">Activo</span>
+          <span class="badge badge--secondary">Cohorte 2</span>
+          <span class="badge badge--outline">Climate Tech</span>
+          <span class="badge badge--success">Levantando</span>
+          <span class="badge badge--secondary badge--up">Access Tech</span>
+        </div>
+        <p class="blocklabel">Semáforo (dot + etiqueta)</p>
+        <div class="specimens">
+          <span class="dotline"><span class="dot verde"></span><span class="dotlabel">Cumple</span></span>
+          <span class="dotline"><span class="dot amarillo"></span><span class="dotlabel">Por cumplir</span></span>
+          <span class="dotline"><span class="dot rojo"></span><span class="dotlabel">No cumple</span></span>
+          <span class="dotline"><span class="dot gris"></span><span class="dotlabel">Sin datos</span></span>
+        </div>
+        <p class="blocklabel">Alcance (% de meta)</p>
+        <div class="specimens">
+          <span class="alc verde">112%</span><span class="alc verde">100%</span>
+          <span class="alc amarillo">82%</span><span class="alc rojo">54%</span>
+          <span class="muted" style="font-size:var(--text-xs)">— (s/d)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">05 · Patrón armado</p>
+    <h2 style="margin:0 0 14px">KPIs hero + tabla densa</h2>
+    <div class="kpis">
+      <div class="kpi"><div class="lab">Score promedio</div><div class="num">71</div><div class="meta">de 15 empresas con mapa</div><div class="bar"><span style="width:71%"></span></div></div>
+      <div class="kpi"><div class="lab">Valor del portafolio</div><div class="num tabular">$48.2<span style="font-size:var(--text-2xl)">M</span></div><div class="meta">valuación agregada · 8 vehículos</div><div class="bar"><span style="width:64%;background:var(--chart-2)"></span></div></div>
+      <div class="kpi"><div class="lab">Estado V · A · R</div><div class="num tabular">9 · 4 · 2</div><div class="meta">verde · amarillo · rojo</div><div class="bar"><span style="width:60%;background:var(--semaforo-amarillo)"></span></div></div>
+    </div>
+    <div class="tablecard" style="margin-top:14px">
+      <table class="dense">
+        <thead><tr><th>Empresa</th><th>Vertical</th><th>Estado</th><th class="r">Score</th><th class="r">Alcance</th><th class="r">Valuación</th></tr></thead>
+        <tbody>
+          <tr><td class="co">Ruta</td><td class="muted">Climate Tech</td><td><span class="dotline"><span class="dot verde"></span><span class="dotlabel">Cumple</span></span></td><td class="r">78</td><td class="r"><span class="alc verde">112%</span></td><td class="r">$15.5M</td></tr>
+          <tr><td class="co">Brío</td><td class="muted">Access Tech</td><td><span class="dotline"><span class="dot amarillo"></span><span class="dotlabel">Por cumplir</span></span></td><td class="r">63</td><td class="r"><span class="alc amarillo">82%</span></td><td class="r">$10.1M</td></tr>
+          <tr><td class="co">Sostén</td><td class="muted">Green Zebra</td><td><span class="dotline"><span class="dot rojo"></span><span class="dotlabel">No cumple</span></span></td><td class="r">51</td><td class="r"><span class="alc rojo">54%</span></td><td class="r">$3.0M</td></tr>
+          <tr><td class="co">Hogar</td><td class="muted">Climate Tech</td><td><span class="dotline"><span class="dot gris"></span><span class="dotlabel">Sin datos</span></span></td><td class="r muted">·</td><td class="r"><span class="muted">—</span></td><td class="r">$7.5M</td></tr>
+        </tbody>
+        <tfoot><tr><td class="co">Total · 4 de 15</td><td></td><td></td><td class="r">—</td><td class="r"></td><td class="r">$36.1M</td></tr></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <footer>LUCHA Impact Studio · Control Tower (LuchIA) — referencia viva. Papel cálido, ink+mint, semáforo por punto + palabra, números tabulares, sin emoji, máx Medium.</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeToggle'),
+      label=document.getElementById('tLabel'), icon=document.getElementById('tIcon');
+  var sun='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  var moon='<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+  function set(mode){
+    if(mode==='dark'){root.setAttribute('data-theme','dark');label.textContent='Light';icon.innerHTML=moon;}
+    else{root.removeAttribute('data-theme');label.textContent='Dark';icon.innerHTML=sun;}
+  }
+  btn.addEventListener('click',function(){
+    set(root.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>

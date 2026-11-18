@@ -1,0 +1,33 @@
+/* ============================================================
+   LuchIA — Semáforo system
+   The signature of the control tower. Every KPI / company carries
+   a status: verde (cumple) · amarillo (por cumplir) · rojo (no
+   cumple) · gris (sin datos). Mapped to Tailwind emerald/amber/
+   rose/zinc as used across the app. Each state ships a dot color,
+   a text color, and a soft background for pills/badges.
+   ============================================================ */
+
+:root {
+  /* dot / bar fill */
+  --semaforo-verde: hsl(160 84% 39%);     /* emerald-500 */
+  --semaforo-amarillo: hsl(43 96% 56%);   /* amber-400   */
+  --semaforo-rojo: hsl(347 77% 60%);      /* rose-500    */
+  --semaforo-gris: hsl(240 5% 65%);       /* zinc-400    */
+
+  /* text */
+  --semaforo-verde-text: hsl(161 94% 30%);    /* emerald-600 */
+  --semaforo-amarillo-text: hsl(38 92% 40%);  /* amber-600   */
+  --semaforo-rojo-text: hsl(347 77% 50%);     /* rose-500/600*/
+  --semaforo-gris-text: hsl(240 4% 46%);      /* zinc-500    */
+
+  /* soft pill backgrounds */
+  --semaforo-verde-soft: hsl(152 76% 96%);    /* emerald-100 */
+  --semaforo-amarillo-soft: hsl(48 96% 89%);  /* amber-100   */
+  --semaforo-rojo-soft: hsl(356 100% 95%);    /* rose-100    */
+  --semaforo-gris-soft: hsl(240 5% 96%);      /* zinc-100    */
+
+  /* alcance thresholds (documented, not enforced) */
+  --alcance-good: 1;    /* @kind other */
+  --alcance-watch: 0.7; /* @kind other */
+  /* < 70% → rojo */
+}

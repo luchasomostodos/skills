@@ -1,0 +1,25 @@
+# Dim 03 · Capital y Estructura
+
+> Detalle de dimensión del EL. Se carga **solo** cuando se construye esta dimensión. La espina (pesos, semáforo, runbook) vive en `references/sistema/el-system.md`. Pesos internos: Estructura ronda 25, Valuation vs stage 25, Cap table 20, Plan forward 15, Ruta al exit 15.
+
+> ### Si el Gate VC-backable dio NO
+>
+> **Estas anclas no aplican tal cual.** Carga primero `references/dimensiones/anclas-caso-no-vc-backable.md`, que trae las anclas de reemplazo, la ponderación de las nueve dimensiones por gate, y la regla de que ningún hecho usado por el gate vuelve a puntuar en ninguna dimensión.
+>
+> **Cuatro de las cinco sub-variables de esta dimensión, el 85% del peso, están escritas con lente venture.** Piden lead investor, múltiplo de ARR, ESOP listo para Serie A, lista de fondos Serie A e historia de M&A.
+
+Pregunta guía: la ronda tiene sentido y la siguiente es alcanzable. El motor entrega ratio, dilución, valuation vs benchmark y estructura de ronda.
+
+- Estructura de ronda: ticket FL, ronda target, % comprometido, cadena SAFE / EI / vesting. Ver `../analisis-financiero-el/references/calculadora-ratio.md`.
+- Valuation vs stage: siempre post-money. Lo que se evalúa es **cómo está priceada la startup en particular** vs comparables de su etapa y sector, no un ancla fija. Referencias de mercado indicativas (varían por etapa/fuente): top quartile LatAm ~USD **5M**; healthcare US ~USD **14M** (etapa más tardía) / ~**6-8M** (pre-seed). La **regla de entrada de Lucha (USD 3M–8M post-money, 8 = excepción)** y el techo de screening viven en `references/kill-criteria.md`; cruzar contra ellos.
+- Múltiplo de ventas: reportar el **múltiplo trailing** (post-money / ARR) junto al precio absoluto. A pre-seed el múltiplo trailing es **ruidoso** porque el denominador es chico: se comprime a medida que crece el revenue, así que un múltiplo alto casi siempre significa que la empresa **levanta temprano en su curva**, no que esté sobrepreciada. Calcular también el **múltiplo forward** (proyectando el ARR al ritmo de crecimiento observado) para ver a cuánto converge. Comparar múltiplos trailing entre empresas de distinto tamaño de revenue es apples-to-oranges; a esta etapa el cross-check correcto es **precio absoluto + crecimiento + equipo**.
+- Cap table: distribución y backers. Posiciones duales equity y deuda del mismo backer son bandera estructural.
+- Ratio Studio/FL: target > **1**. Reportar sin vesting y con vesting cumplido.
+- Plan forward y Ruta al exit: juicio, con comparables del sector.
+- **Los términos del deal de Lucha NO van en Capital.** Ticket, programa/sweat, CADE, vesting, stake y ratio Studio/FL viven en la sección de **Propuesta / Términos** (y en la Calculadora), porque pueden cambiar hasta comité. En Capital va la **estructura de la ronda** (instrumento, cap/valuación, tamaño, % comprometido, dilución) y la lectura de valuación; no las económicas del deal de Lucha. En Ruta al exit va el análisis de salida (compradores, precedentes, optionality, protecciones), no los términos.
+
+Doble click: 6 callouts en grid 3x2 (modos SAFE / Priced) + 5 sub-bloques narrativos. SAFE es el modo poblado por defecto; Priced solo con term sheet completo.
+
+**Callout estándar "¿Es justa la valuación?".** Dim 03 incluye un callout que da un **veredicto explícito** de fairness, no solo el número. Método de las **dos verdades**: (1) en **precio absoluto**, ubicar el post-money vs benchmarks de mercado (mediana pre-seed LatAm ~$4.05M, healthcare US pre-seed ~$6.2M, pisos de accelerator ~$1.4–2M, rango de entrada de Lucha $3M–$8M) y decir si está barata/cara en absoluto; (2) en **múltiplo de revenue**, el múltiplo ARR y si es exigente; un múltiplo alto por **levantar temprano** en la curva no es valuación inflada. Cerrar con el veredicto (justa / barata / cara y por qué) y la **condición**: si el founder prioriza dividendos sobre exit (ver Ruta al exit), el precio de entrada pesa más → la fairness queda condicionada a blindar la estructura de retorno. En el documento renderizado van solo benchmarks de mercado; los comparables internos de portafolio (otros deals de Lucha) se quedan en el memo interno, no en el artifact que puede compartirse.
+
+**Callout estándar "Lectura del múltiplo de ventas".** Cuando el múltiplo se ve alto (lo típico a pre-seed), Dim 03 incluye un callout que lo explica para que el comité no lo lea como sobreprecio. Tres párrafos: (1) por qué es alto (denominador chico, levanta temprano; el múltiplo se comprime al crecer el revenue, y en absoluto suele ser más barata que un comparable con más ARR); (2) convergencia forward (a qué múltiplo cae si sostiene el crecimiento, ej. de 18x a 6-7x al llegar a ~$500k ARR); (3) el matiz honesto: un múltiplo más alto que un comparable con más ARR significa **menos prueba de unit economics**, así que se apoya más en crecimiento y equipo, y por eso conviene entrar al piso y blindar el retorno. Al comparar contra comparables del portafolio, el comparable va **genérico** en el artifact (ej. "una healthtech del portafolio a ~$1M ARR, ~8x"), sin nombrar la empresa; los números nombrados quedan en el memo interno.

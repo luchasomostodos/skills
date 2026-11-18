@@ -1,0 +1,49 @@
+/* ============================================================
+   LuchIA — Webfonts
+   ONE typeface for everything: MADE Tommy Soft (MadeType), incl.
+   numerics. Medium (500) is the main weight; body uses Light/Regular.
+   Bold tiers (600/700) are intentionally mapped to Medium so nothing
+   renders heavier than Medium — keeps the soft, even brand feel.
+   NOTE: these are the "PERSONAL USE" .otf files — swap for the full
+   commercial license before production/distribution.
+   ============================================================ */
+
+/* Light (300) — body */
+@font-face {
+  font-family: "MADE Tommy Soft";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/MADETommySoft-Light.otf") format("opentype");
+}
+/* Regular (400) — body */
+@font-face {
+  font-family: "MADE Tommy Soft";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/MADETommySoft-Regular.otf") format("opentype");
+}
+/* Medium (500) — default emphasis, headings, labels */
+@font-face {
+  font-family: "MADE Tommy Soft";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/MADETommySoft-Medium.otf") format("opentype");
+}
+/* 600 / 700 mapped to Medium — no bold in the system */
+@font-face {
+  font-family: "MADE Tommy Soft";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/MADETommySoft-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "MADE Tommy Soft";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("./fonts/MADETommySoft-Medium.otf") format("opentype");
+}

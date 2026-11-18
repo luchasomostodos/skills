@@ -1,0 +1,10 @@
+/* ---------- un solo ancho para todo el documento, el del mapa (2026-09-29) ----------
+   Contenedores sin caja, 1560 con 16 de margen interno. Cajas, 1528, para que
+   su borde calce con el borde de las tarjetas del mapa. */
+body>.hd,body>.nav,body>.lg,body>.bmc,body>.section,body>footer,body>.mtd-tog{max-width:1560px!important;margin-left:auto!important;margin-right:auto!important;padding-left:16px!important;padding-right:16px!important}
+body>.diag,body>.caso,body>.apuesta{max-width:1528px!important;margin-left:auto!important;margin-right:auto!important}
+body>.section>div[style*="margin:0 32px"],body>.section>div[style*="margin: 0 32px"]{margin-left:0!important;margin-right:0!important}
+#validacion-body{margin-left:0!important;margin-right:0!important}
+#deal .cl-wrap{margin-left:0!important;margin-right:0!important}
+#mtd-reglas{margin-left:0!important;margin-right:0!important}
+@media (max-width:1560px){body>.diag,body>.caso,body>.apuesta{margin-left:16px!important;margin-right:16px!important}}

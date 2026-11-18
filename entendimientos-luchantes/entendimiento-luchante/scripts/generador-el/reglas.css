@@ -1,0 +1,20 @@
+/* ---------- carril y reglas, Dim 09 que no existe, tema ---------- */
+.rg-chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0 14px}
+.rg-chip{border:1px solid var(--lineW);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:3px;background:var(--card)}
+.rg-chip b{font-size:13.5px;font-weight:500;color:var(--ink)}
+.rg-nota{margin:0 0 16px;font-size:13px;line-height:1.55;color:var(--ink);padding:10px 14px;border-radius:10px;background:rgba(28,62,142,.07)}
+#mtd-reglas{margin:8px 32px 28px}
+#mtd-reglas .ng-sec-h,#mtd-reglas .ng-sec-sub,#mtd-reglas .mtd-tabla{margin-left:0!important;margin-right:0!important}
+#mtd-reglas .mtd-tabla{width:100%}
+#mtd-reglas .ng-sec-h+.ng-sec-sub{margin-bottom:4px}
+#mtd-reglas .mtd-tabla{margin-top:8px}
+.bk.rg-na{opacity:.75}
+.rg-na-p{margin:6px 0 0;font-size:12px;line-height:1.5;color:var(--mut)}
+@media (max-width:900px){.rg-chips{grid-template-columns:1fr 1fr}#mtd-reglas{margin:8px 18px 24px}}
+.th-tog{margin-left:6px;width:36px;height:36px;border-radius:99px;border:1px solid var(--lineW);background:var(--card);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);transition:transform .3s var(--ease)}
+.th-tog:hover{transform:rotate(-12deg)}
+.th-tog:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.th-tog svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
+.th-tog .th-moon{display:none;fill:currentColor;stroke:none}
+[data-theme="dark"] .th-tog .th-sun{display:none}
+[data-theme="dark"] .th-tog .th-moon{display:block}

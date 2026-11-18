@@ -10,6 +10,7 @@ Biblioteca del equipo para mantener la identidad de Lucha y los lineamientos de 
 | [huascaran](huascaran/README.md) | Skills propios de Huascarán, comenzando por sus restricciones de interfaz |
 | [flujos-n8n](flujos-n8n/README.md) | Estándar para crear, modificar y revisar workflows en el n8n de Lucha |
 | [readme-github](readme-github/README.md) | Cómo escribir el README de cualquier repositorio en lenguaje simple y sin términos técnicos |
+| [entendimientos-luchantes](entendimientos-luchantes/README.md) | Kit del Entendimiento Luchante: orquestador del EL, finanzas, valorización, impacto, founder, cierre, auditoría y marca para tableros |
 
 Cada carpeta tiene un `README.md` para el equipo. Cada skill tiene además un `SKILL.md`, que contiene las instrucciones que lee el agente. Los README explican la organización; los SKILL dirigen el trabajo.
 
@@ -35,11 +36,22 @@ lucha-skills/
 │   ├── SKILL.md
 │   ├── agents/        # Configuración de presentación del skill
 │   └── references/    # Configuración, nombres y notas, revisión
-└── readme-github/
+├── readme-github/
+│   ├── README.md
+│   ├── SKILL.md
+│   ├── agents/        # Configuración de presentación del skill
+│   └── references/    # Estructura, lenguaje, revisión
+└── entendimientos-luchantes/
     ├── README.md
-    ├── SKILL.md
-    ├── agents/        # Configuración de presentación del skill
-    └── references/    # Estructura, lenguaje, revisión
+    ├── entendimiento-luchante/   # Orquestador, rúbricas, plantilla y generador
+    ├── analisis-financiero-el/
+    ├── valorizacion-luchante/
+    ├── impacto-luchante/
+    ├── tribalometro/
+    ├── saboteadores/
+    ├── cierre-el/
+    ├── climpi/
+    └── lucha-brand/
 ```
 
 Las carpetas de recursos también incluyen su propio README. La organización parte de la práctica de [Jibaru/skills](https://github.com/Jibaru/skills), adaptada a una biblioteca compartida y a carpetas por proyecto.
@@ -78,6 +90,12 @@ Para escribir el README de cualquier repositorio, instalar el skill de README en
 bash install.sh --agent claude --skill readme-github
 ```
 
+Para evaluar casos con el Entendimiento Luchante, instalar el orquestador y los skills que usa. La [guía de la carpeta](entendimientos-luchantes/README.md) trae el comando con los nueve skills.
+
+```sh
+bash install.sh --agent claude --skill entendimiento-luchante --skill analisis-financiero-el --skill valorizacion-luchante
+```
+
 El instalador encuentra también los skills dentro de carpetas de proyecto. Sin `--skill`, instala todos los de la biblioteca. Cambiar `--agent codex` por `--agent claude` permite instalar para Claude Code.
 
 Con `--project` se copian los archivos a `.agents/skills/` para Codex o `.claude/skills/` para Claude. Las copias pueden versionarse con el proyecto y sus cambios se revisan allí. Sin `--project`, se crean enlaces personales en `~/.agents/skills/` o `~/.claude/skills/`, que siguen los cambios de esta biblioteca local. No mover la biblioteca mientras se utilicen esos enlaces.
@@ -95,6 +113,7 @@ Usa $identidad-lucha para diseñar esta landing de Lucha.
 Usa $interfaz-huascaran para modificar el detalle de misión de Huascarán.
 Usa $flujos-n8n para revisar si los flujos de Chief cumplen el estándar.
 Usa $readme-github para escribir el README de este repositorio.
+Usa $entendimiento-luchante para correr el EL de [empresa].
 ```
 
 Un skill puede seleccionarse por su descripción o invocarse explícitamente. Para que las reglas de identidad estén presentes al trabajar en una web, añadir este bloque al `AGENTS.md` del proyecto, conservando sus instrucciones existentes:
@@ -116,6 +135,7 @@ Para Claude, incorporar las reglas equivalentes a las instrucciones que utilice 
 ## Mantener esta biblioteca
 
 - La identidad compartida vive en `identidad-lucha/`; las particularidades de Huascarán, en `huascaran/`.
+- Esta biblioteca es pública. Antes de subir ejemplos o datos de casos, anonimizarlos como se explica en [entendimientos-luchantes](entendimientos-luchantes/README.md#datos-de-ejemplo).
 - Al añadir otro proyecto, crear su carpeta con README y los skills que necesite.
 - Cada nuevo skill necesita su propio nombre único y `SKILL.md`. No usar el mismo nombre para skills diferentes aunque estén en carpetas distintas.
 - Separar reglas confirmadas, medidas de referencia y decisiones históricas reemplazadas.

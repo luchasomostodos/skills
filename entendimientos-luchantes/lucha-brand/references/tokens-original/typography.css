@@ -1,0 +1,42 @@
+/* ============================================================
+   LuchIA — Typography tokens
+   ONE typeface: MADE Tommy Soft for everything, including numerics
+   (--font-mono aliases the same family — no second typeface). Medium
+   (500) is the main weight; body uses Light (300) / Regular (400).
+   ============================================================ */
+
+:root {
+  --font-sans: "MADE Tommy Soft", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "MADE Tommy Soft", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* type scale (px) — dashboard density */
+  --text-2xs: 10px;   /* micro labels, uppercase eyebrows */
+  --text-xs: 12px;    /* meta, captions, table micro-heads */
+  --text-sm: 14px;    /* body / table cells */
+  --text-base: 16px;
+  --text-lg: 18px;    /* narrative lines */
+  --text-xl: 20px;    /* section headings */
+  --text-2xl: 24px;   /* page titles */
+  --text-3xl: 30px;   /* portfolio counts */
+  --text-5xl: 48px;   /* hero KPI */
+  --text-6xl: 60px;   /* hero KPI (lg) */
+
+  /* weights — Medium is the heaviest used; no bold */
+  --fw-light: 300;    /* @kind font */
+  --fw-normal: 400;   /* @kind font */
+  --fw-medium: 500;   /* @kind font */
+  --fw-semibold: 500; /* @kind font */
+  --fw-bold: 500;     /* @kind font */
+
+  /* tracking */
+  --tracking-tight: -0.02em;  /* @kind font */
+  --tracking-normal: 0;       /* @kind font */
+  --tracking-wide: 0.05em;    /* @kind font */
+  --tracking-wider: 0.1em;    /* @kind font */
+  --tracking-widest: 0.15em;  /* @kind font */
+
+  /* line-height */
+  --leading-none: 1;       /* @kind font */
+  --leading-snug: 1.35;    /* @kind font */
+  --leading-relaxed: 1.6;  /* @kind font */
+}

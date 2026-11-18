@@ -1,0 +1,17 @@
+/* ---------- tipografia, propuesta 3 del 2026-09-29 ----------
+   Nunito en todo, tres tamanos (13, 15 y 20), etiquetas sin mayusculas y mas aire.
+   El resto de tamanos lo remapea transform.py sobre todo el CSS del EL. */
+body{font-family:'Nunito',system-ui,sans-serif}
+.dx-verdict{font-size:20px!important;line-height:1.5!important;font-weight:600!important}
+.sx-tesis{font-size:20px!important;line-height:1.5!important;font-weight:600!important;padding-left:16px!important}
+.sx-fig>b{font-size:26px!important;font-weight:700!important}
+.sx-fig p,.sx-intro,.sx-puntos li,.sx-tr,.sx-call p,.sx-note,.dx-true li,.dx-def,.dx-ol,.abc-l,.abc-why,.abc-rdet,.abc-aviso{font-size:15px!important;line-height:1.7!important}
+.sx-fig p,.sx-intro,.sx-tr span,.sx-note,.dx-ol{color:hsl(215 16% 32%)}
+.eb{font-size:13px!important;text-transform:none!important;letter-spacing:0!important;font-weight:700!important;color:hsl(215 16% 30%)}
+.sx-puntos li b,.sx-tr span:first-child,.dx-row-t>b{font-weight:700!important}
+.dx-row-t>b{font-size:15px!important}
+.sx-fig{gap:12px!important;padding:18px 20px!important}
+.sx-puntos{gap:12px!important}.sx-puntos li{padding:14px 18px 14px 48px!important}
+.sx>*+*{margin-top:22px!important}.sx-sec{gap:12px!important}
+.sx-figs,.sx-calls{gap:16px!important}
+.diag-score .lbl{letter-spacing:0!important;font-size:13px!important}

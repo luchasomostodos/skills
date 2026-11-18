@@ -1,0 +1,190 @@
+/* ============================================================
+   LUCHA — Control Tower (LuchIA) design tokens
+   Single linkable entry point for artifacts. Link THIS file and
+   you inherit colors + type + spacing + the semáforo system, in
+   light and dark.
+
+   NEUTRALS = "torre de control": ink/grafito sobre PAPEL CÁLIDO
+   (no el slate frío del shell). Es lo que usan las pantallas reales
+   del tablero (Portafolio, Mapas). Cards blancas sobre papel cálido.
+
+   DARK MODE: pon `data-theme="dark"` en <html> (o en el contenedor).
+   El MINT es el único acento; las superficies "ink-fill" voltean a
+   mint con texto oscuro.
+
+   FONT: la tipografía de marca es MADE Tommy Soft (no incluida: los
+   .otf son "personal use" y no están en Google Fonts). Fallback para
+   artifacts: QUICKSAND, luego system-ui. Carga en el <head>:
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+   En live artifacts (sin URLs externas) quita el <link> y queda system-ui.
+
+   PESO MÁX = MEDIUM. En el producto real (MADE Tommy Soft) los pesos
+   500/600/700 renderizan TODOS como Medium. Con Quicksand cargamos
+   solo hasta 500 y todos los tokens de peso fuerte = 500, así NADA
+   se ve más pesado que Medium. Nunca subas de 500 para texto de marca.
+   ============================================================ */
+
+:root {
+  /* ---------- Neutrales · torre de control (papel cálido) ---------- */
+  --color-bg: hsl(40 24% 96.5%);          /* lienzo / página (papel cálido) */
+  --color-surface-card: #ffffff;          /* toda tarjeta / panel */
+  --color-surface-card-2: hsl(40 26% 98.4%); /* card alterna, header de tabla */
+  --color-surface-muted: hsl(40 26% 95%); /* fondos sutiles, barras base */
+  --color-hover: hsl(40 26% 95%);         /* hover de fila / botón sutil */
+  --color-border: hsl(38 16% 88%);        /* borde hairline 1px */
+  --color-hairline: hsl(38 15% 91.5%);    /* divisor más tenue */
+
+  --color-fg: #0e1c2b;                     /* tinta de marca (ink) */
+  --color-text-body: #0e1c2b;
+  --color-text-muted: hsl(212 12% 42%);   /* meta, captions */
+  --color-text-subtle: hsl(212 12% 62%);  /* s/d, hints */
+  --color-faint: hsl(212 14% 78%);        /* dimmed, deshabilitado */
+
+  --color-primary: #0e1c2b;               /* acción primaria (ink) */
+  --color-primary-fg: #ffffff;            /* texto sobre primario */
+  --color-secondary: hsl(40 26% 95%);     /* botón secundario */
+  --color-ring: #0e1c2b;                  /* foco */
+  --color-destructive: hsl(0 72% 51%);
+
+  /* shadcn raw triplets for Tailwind compatibility — warmed */
+  --background: 40 24% 96.5%;
+  --foreground: 212 51% 11%;
+  --card: 0 0% 100%;
+  --muted: 40 26% 95%;
+  --muted-foreground: 212 12% 42%;
+  --border: 38 16% 88%;
+  --input: 38 16% 88%;
+  --ring: 212 51% 11%;
+  --primary: 212 51% 11%;
+  --primary-foreground: 0 0% 100%;
+
+  /* ---------- LUCHA brand palette (del brand deck) ---------- */
+  --brand-ink: #0e1c2b;
+  --brand-mint: #8fe2a1;     /* el acento firma (sobre ink, y único acento en dark) */
+  --brand-azul: #1c3e8e;
+  --brand-verde: #6ed48e;
+  --brand-forest: #2d5749;
+  --brand-rosa: #f0316a;     /* solo alerta / dato en rojo */
+  --brand-rosa-soft: #fdeef2;
+  --brand-verde-soft: #eef9f1;
+  --brand-mint-soft: #ecf9f0;
+
+  /* datos / cohortes (azul → teal → verde) */
+  --color-chart-1: #1c5d9e;
+  --color-chart-2: #3a9d9b;
+  --color-chart-3: #84d094;
+  --color-chart-4: hsl(43 74% 56%);
+  --color-chart-5: hsl(27 80% 60%);
+
+  /* ---------- Semáforo (la firma) · light ---------- */
+  --semaforo-verde: hsl(160 84% 39%);     /* cumple      · score ≥ 70 */
+  --semaforo-amarillo: hsl(43 96% 56%);   /* por cumplir · 55–69     */
+  --semaforo-rojo: hsl(347 77% 60%);      /* no cumple   · < 55      */
+  --semaforo-gris: hsl(240 5% 65%);       /* sin datos               */
+  --semaforo-verde-text: hsl(161 94% 30%);
+  --semaforo-amarillo-text: hsl(38 92% 40%);
+  --semaforo-rojo-text: hsl(347 77% 50%);
+  --semaforo-gris-text: hsl(240 4% 46%);
+  --semaforo-verde-soft: hsl(152 76% 96%);
+  --semaforo-amarillo-soft: hsl(48 96% 89%);
+  --semaforo-rojo-soft: hsl(356 100% 95%);
+  --semaforo-gris-soft: hsl(240 5% 96%);
+  --alcance-good: 1;     /* ≥100% verde */
+  --alcance-watch: 0.7;  /* ≥70% amarillo · <70% rojo */
+
+  /* ---------- Typography ---------- */
+  --font-sans: "MADE Tommy Soft", "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "MADE Tommy Soft", "Quicksand", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-2xs: 10px; --text-xs: 12px; --text-sm: 14px; --text-base: 16px;
+  --text-lg: 18px; --text-xl: 20px; --text-2xl: 24px; --text-3xl: 30px;
+  --text-5xl: 48px; --text-6xl: 60px;
+
+  /* PESO MÁX = MEDIUM. Light 300, body 400, todo lo demás 500. */
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 500;   /* = Medium, a propósito (no hay negrita) */
+  --fw-bold: 500;       /* = Medium, a propósito */
+
+  --tracking-tight: -0.02em; --tracking-normal: 0;
+  --tracking-wide: 0.05em; --tracking-wider: 0.1em; --tracking-widest: 0.15em;
+  --leading-none: 1; --leading-snug: 1.35; --leading-relaxed: 1.6;
+
+  /* ---------- Spacing / radius / shadow / layout / motion ---------- */
+  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
+  --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+
+  --radius: .5rem; --radius-sm: .25rem; --radius-md: .375rem; --radius-ctrl: .5625rem;
+  --radius-lg: .875rem; --radius-xl: 1rem; --radius-2xl: 1.5rem; --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px hsl(30 30% 25% / .05);
+  --shadow-card: 0 1px 2px hsl(30 30% 25% / .05), 0 1px 3px -1px hsl(30 30% 25% / .04);
+  --shadow-pop: 0 10px 30px -8px hsl(208 50% 18% / .22), 0 2px 6px -2px hsl(208 40% 18% / .12);
+
+  --layout-max: 77.5rem; --nav-height: 3.5rem;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --dur-fast: 120ms; --dur: 200ms; --dur-slow: 550ms;
+}
+
+/* ============================================================
+   DARK MODE — valores reales de los kits (torre de control).
+   Texto off-white cálido; MINT como único acento; semáforo en
+   tonos profundos (los puntos se mantienen).
+   ============================================================ */
+[data-theme="dark"] {
+  --color-bg: hsl(215 28% 9%);
+  --color-surface-card: hsl(215 24% 12.5%);
+  --color-surface-card-2: hsl(215 22% 15.5%);
+  --color-surface-muted: hsl(215 20% 17%);
+  --color-hover: hsl(215 20% 17%);
+  --color-border: hsl(215 16% 25%);
+  --color-hairline: hsl(215 16% 19%);
+
+  --color-fg: hsl(40 18% 90%);
+  --color-text-body: hsl(40 18% 90%);
+  --color-text-muted: hsl(215 12% 64%);
+  --color-text-subtle: hsl(215 12% 48%);
+  --color-faint: hsl(215 12% 36%);
+
+  --color-primary: var(--brand-mint);     /* ink-fill voltea a mint */
+  --color-primary-fg: hsl(215 32% 10%);   /* texto oscuro sobre mint */
+  --color-secondary: hsl(215 20% 17%);
+  --color-ring: var(--brand-mint);
+
+  --background: 215 28% 9%;
+  --foreground: 40 18% 90%;
+  --card: 215 24% 12.5%;
+  --muted: 215 20% 17%;
+  --muted-foreground: 215 12% 64%;
+  --border: 215 16% 25%;
+  --input: 215 16% 25%;
+  --ring: 160 52% 62%;
+  --primary: 150 52% 73%;
+  --primary-foreground: 215 32% 10%;
+
+  /* semáforo dark: puntos iguales; soft profundo; texto más claro */
+  --semaforo-verde-soft: hsl(150 30% 15%);   --semaforo-verde-text: hsl(150 52% 62%);
+  --semaforo-amarillo-soft: hsl(43 36% 16%); --semaforo-amarillo-text: hsl(43 78% 62%);
+  --semaforo-rojo-soft: hsl(347 32% 19%);    --semaforo-rojo-text: hsl(347 74% 71%);
+  --semaforo-gris-soft: hsl(215 14% 18%);    --semaforo-gris-text: hsl(215 10% 60%);
+
+  --shadow-card: 0 1px 2px hsl(0 0% 0% / .4), 0 1px 3px -1px hsl(0 0% 0% / .3);
+  --shadow-pop: 0 10px 30px -8px hsl(0 0% 0% / .55), 0 2px 6px -2px hsl(0 0% 0% / .4);
+}
+
+/* Base sensata: linkar el archivo ya se ve on-brand. */
+html { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+body {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-normal);
+  color: var(--color-text-body);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+*, *::before, *::after { box-sizing: border-box; }
+.tabular { font-variant-numeric: tabular-nums; }

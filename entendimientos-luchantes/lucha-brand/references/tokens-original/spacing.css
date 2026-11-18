@@ -1,0 +1,43 @@
+/* ============================================================
+   LuchIA — Spacing, radius, shadow, layout tokens
+   Radius base 0.5rem (shadcn --radius). Cards use hairline
+   borders + soft shadows. Layout is a centered max-w-6xl column.
+   ============================================================ */
+
+:root {
+  /* spacing scale (Tailwind-aligned, rem) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* radius (shadcn: --radius 0.5rem; sm/md derive) */
+  --radius: 0.5rem;          /* 8px  — base (lg in tailwind) */
+  --radius-sm: 0.25rem;      /* 4px  */
+  --radius-md: 0.375rem;     /* 6px  */
+  --radius-lg: 0.75rem;      /* 12px — table/card containers */
+  --radius-xl: 1rem;         /* 16px — hero support cards */
+  --radius-2xl: 1.5rem;      /* 24px — hero primary card */
+  --radius-3xl: 1.75rem;     /* 28px */
+  --radius-full: 9999px;     /* pills, dots */
+
+  /* shadows — restrained, never heavy */
+  --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
+  --shadow-card: 0 1px 3px 0 hsl(222 47% 11% / 0.06), 0 1px 2px -1px hsl(222 47% 11% / 0.04);
+  --shadow-pop: 0 4px 16px -2px hsl(222 47% 11% / 0.1), 0 2px 6px -2px hsl(222 47% 11% / 0.06);
+
+  /* layout */
+  --layout-max: 72rem;       /* @kind spacing */
+  --nav-height: 3.5rem;      /* @kind spacing */
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --dur-fast: 120ms;  /* @kind other */
+  --dur: 200ms;       /* @kind other */
+  --dur-slow: 700ms;  /* @kind other */
+}

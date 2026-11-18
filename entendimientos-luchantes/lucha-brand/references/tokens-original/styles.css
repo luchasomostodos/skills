@@ -1,0 +1,10 @@
+/* ============================================================
+   LuchIA Design System — global entry point
+   Consumers link THIS file. It is only a list of @imports.
+   ============================================================ */
+
+@import "./fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/semaforo.css";
