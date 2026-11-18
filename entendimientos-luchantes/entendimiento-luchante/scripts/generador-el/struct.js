@@ -15,33 +15,33 @@ var STRUCT = {
     { k: "Capacidad", v: "125%", n: "de lo que la empresa dice que puede ejecutar. Declara hasta 8 desarrollos completos al año y espera 18 recién en 24 meses, y el plan arranca con 10.", bars: [{ l: "Capacidad hoy", v: 8, t: "8", c: "n" }, { l: "Plan 2027", v: 10, t: "10", c: "r" }] }
    ],
    tablas: [{ t: "La cartera comercial, contrato por contrato", head: ["Contraparte", "Módulo inicial", "Si cierra todo"], rows: [
-    ["BioControl NL México", "USD 7.500", "hasta USD 27.500"], ["BioControl NL Argentina", "USD 15.000", "USD 30.000 a 32.500"], ["Ideagro Lab", "USD 15.000", "hasta USD 32.500"],
-    ["Fresal Biotech", "USD 17.500", "USD 35.000 a 40.000"], ["Alma Bio", "USD 17.500", "USD 35.000 a 40.000"], ["Cumbre Bio", "USD 6.250 en México más USD 10.000 en Argentina", "hasta USD 68.750 con los tres módulos"],
-    ["Total", "USD 78.750 a 82.500", "USD 241.250 declarado, USD 203.750 real"]], total: true }],
+    ["BioControl NL México", "USD 5.400", "hasta USD 19.800"], ["BioControl NL Argentina", "USD 10.800", "USD 21.600 a 23.400"], ["Ideagro Lab", "USD 10.800", "hasta USD 23.400"],
+    ["Fresal Biotech", "USD 12.600", "USD 25.200 a 28.800"], ["Alma Bio", "USD 12.600", "USD 25.200 a 28.800"], ["Cumbre Bio", "USD 4.500 en México más USD 7.200 en Argentina", "hasta USD 49.500 con los tres módulos"],
+    ["Total", "USD 56.700 a 59.400", "USD 173.700 declarado, USD 146.700 real"]], total: true }],
    puntos: { t: "Los tres sustitutos del cliente", intro: "El comprador es el responsable de I+D de un fabricante de bioinsumos y paga con presupuesto de formulación, un mercado de USD 280 a 570 millones al año.", items: [
     { b: "Hacerlo en casa.", d: "Uno de los clientes potenciales entrevistados ya tiene plataforma propia y terceriza por capacidad, no por incapacidad. Puede dejar de comprar cuando le sobra capacidad interna." },
     { b: "Otro proveedor con el mismo modelo.", d: "el Instituto Hale cobra fee más licencia. Se examina en Defensibilidad, para no cobrarlo dos veces." },
     { b: "No hacer nada.", d: "El cuello de botella de la industria es el registro sanitario, de siete a nueve años en Europa, y Polímera vende velocidad en formulación, que no es ese cuello." }] },
    calls: [
-    { tipo: "bad", t: "El techo real", p: "De los USD 162.500 en módulos opcionales, USD 142.500 están declarados por escrito como no comprometidos por cuatro de las seis contrapartes. Y USD 37.500 del techo son un pago de activación de Cumbre Bio y no un módulo, así que el techo real es USD 203.750." },
+    { tipo: "bad", t: "El techo real", p: "De los USD 117.000 en módulos opcionales, USD 102.600 están declarados por escrito como no comprometidos por cuatro de las seis contrapartes. Y USD 27.000 del techo son un pago de activación de Cumbre Bio y no un módulo, así que el techo real es USD 146.700." },
     { tipo: "info", t: "Lo que hay en papel", p: "El único acuerdo de transferencia de material firmado es el de AgroGlobal Sciences, y un segundo acuerdo con otro cliente sigue sin firmar. La conversión de 28% que declara la empresa reconcilia contra cuatro pruebas de concepto «activas» sin documento firmado detrás." }],
    nota: "No dice que el negocio esté mal pensado. Hay una plataforma funcionando, un acuerdo de transferencia firmado con un cliente de primer nivel y siete propuestas vivas con compromiso inicial real."
   },
   1: {
    tesis: "El lado del ingreso está modelado y el del costo no. Al precio que los clientes tienen hoy sobre la mesa, cada desarrollo completo cuesta más de lo que cobra.",
    figs: [
-    { k: "Costo directo por desarrollo", v: "USD 21.630", n: "en 2027 y USD 22.074 en 2028. Suma renta y materiales de laboratorio, servicios técnicos y sueldo del personal técnico." },
-    { k: "Cobertura al precio real", v: "0,61x a 0,64x", n: "con USD 13.125 a 13.750 de módulo inicial. Al fee del modelo, USD 37.500, serían 1,73 veces el costo y 42,3% de margen.", bars: [{ l: "Precio real", v: 13.44, t: "13,1 a 13,8k", c: "y" }, { l: "Costo", v: 21.63, t: "21,6k", c: "n" }, { l: "Fee del modelo", v: 37.5, t: "37,5k", c: "g" }] },
+    { k: "Costo directo por desarrollo", v: "USD 15.574", n: "en 2027 y USD 15.893 en 2028. Suma renta y materiales de laboratorio, servicios técnicos y sueldo del personal técnico." },
+    { k: "Cobertura al precio real", v: "0,61x a 0,64x", n: "con USD 9.450 a 9.900 de módulo inicial. Al fee del modelo, USD 27.000, serían 1,73 veces el costo y 42,3% de margen.", bars: [{ l: "Precio real", v: 9.675, t: "9,5 a 9,9k", c: "y" }, { l: "Costo", v: 15.57, t: "15,6k", c: "n" }, { l: "Fee del modelo", v: 27, t: "27k", c: "g" }] },
     { k: "Cobertura de caja por los fees", v: "57,2%", n: "del gasto en los 24 meses del plan. Opera con caja negativa por diseño mientras no tenga otra fuente de ingreso.", max: 100, bars: [{ l: "2027", v: 46.3, t: "46,3%", c: "y" }, { l: "2028", v: 69.3, t: "69,3%", c: "y" }] }
    ],
    puntos: { t: "Por qué el costo no es un modelo", items: [
-    { b: "El mismo rango con dos etiquetas.", d: "El documento de negocio usa USD 37.500 a 187.500 como precio en una página y como costo en la siguiente, y en la misma frase dice «embedded margin». Un tercer rótulo, USD 0.29/L, usa la palabra costo con otro significado." },
+    { b: "El mismo rango con dos etiquetas.", d: "El documento de negocio usa USD 27.000 a 135.000 como precio en una página y como costo en la siguiente, y en la misma frase dice «embedded margin». Un tercer rótulo, USD 0.21/L, usa la palabra costo con otro significado." },
     { b: "600 constantes tecleadas.", d: "El bloque de costos no referencia las hojas de escenario. En el pesimista se ejecutan 11 proyectos en vez de 22 y el gasto de 24 meses no se mueve ni un dólar." },
     { b: "Un factor de 1,17 sin rótulo.", d: "Multiplica buena parte del presupuesto de 2027 y 2028 sobre la base de 2026. No está identificado y no coincide con el IVA mexicano de 16%." },
     { b: "El costeo del Módulo A es estimación.", d: "Los founders declararon el 12 de septiembre que no tienen time tracking ni sistema de costeo. Con la contingencia de 20% a 30%, el margen de 45% a 50% baja a 28,5%." }] },
    tablas: [
     { t: "La regalía, cinco tasas en tres instrumentos", head: ["Instrumento", "Tasa"], rows: [
-     ["Modelo de la empresa", "4% sobre USD 1.250.000 de ventas anuales por producto, con rezago de tres años"], ["Contratos con BioControl NL", "3% a 5% sobre ventas netas, orientativo y no vinculante"], ["Propuesta de Cumbre Bio", "1% con gatillo a 2%, o 1,5% fijo"]] },
+     ["Modelo de la empresa", "4% sobre USD 900.000 de ventas anuales por producto, con rezago de tres años"], ["Contratos con BioControl NL", "3% a 5% sobre ventas netas, orientativo y no vinculante"], ["Propuesta de Cumbre Bio", "1% con gatillo a 2%, o 1,5% fijo"]] },
     { t: "Cuándo la regalía supera a los fees", head: ["Tasa firmada", "Cruce"], rows: [["5%", "2031"], ["4%", "2032"], ["3%", "2034"], ["1% o 1,5%", "No cruza dentro de la ventana"]] }],
    calls: [{ tipo: "info", t: "El plazo también tiene tres versiones", p: "Veinte años en un documento, once años sin decaimiento en el modelo, y cuatro o tres años en la propuesta de Cumbre Bio, que aclara por escrito que «no se contempla una obligación perpetua»." }],
    nota: "No dice que los founders no sepan cobrar. Articulan precio, módulos, hitos de cobro y regalía con solvencia, y el lado del ingreso sí está enlazado a sus supuestos."
@@ -74,19 +74,19 @@ var STRUCT = {
   4: {
    tesis: "Quedan 2,8 meses de caja, y 1,8 si se cuenta solo lo que está en cuentas de la empresa. Al ritmo de gasto de este año, la caja llega a cero alrededor del 24 de noviembre.",
    figs: [
-    { k: "Caja al 31 de agosto", v: "USD 47.530", n: "cuadra al centavo contra los tres libros de gasto. USD 17.908,31 están en la cuenta personal de Lucía Ferrer, el premio de InnovaRed, y USD 29.622,14 en cuentas de la empresa.", stack: [["Cuentas de la empresa", 29622.14, "var(--tealB)"], ["Cuenta personal de una founder", 17908.31, "var(--syD)"]] },
-    { k: "Runway", v: "2,8 a 3,9 meses", n: "con el gasto de 2026, USD 16.708 al mes, o el de los últimos tres meses, USD 12.306. El corte de julio publicaba 3,7." },
-    { k: "Cierre de 2026", v: "USD -32.019", n: "es donde cierra diciembre con su propio presupuesto de agosto a diciembre, que carga propiedad intelectual y un evento de fin de año." }
+    { k: "Caja al 31 de agosto", v: "USD 34.222", n: "cuadra al centavo contra los tres libros de gasto. USD 12.893,99 están en la cuenta personal de Lucía Ferrer, el premio de InnovaRed, y USD 21.327,94 en cuentas de la empresa.", stack: [["Cuentas de la empresa", 21327.94, "var(--tealB)"], ["Cuenta personal de una founder", 12893.99, "var(--syD)"]] },
+    { k: "Runway", v: "2,8 a 3,9 meses", n: "con el gasto de 2026, USD 12.029 al mes, o el de los últimos tres meses, USD 8.861. El corte de julio publicaba 3,7." },
+    { k: "Cierre de 2026", v: "USD -23.054", n: "es donde cierra diciembre con su propio presupuesto de agosto a diciembre, que carga propiedad intelectual y un evento de fin de año." }
    ],
    tablas: [{ t: "Cuánto pide la ronda y cuánto necesita", head: ["Cifra", "Monto", "Fuente"], rows: [
-    ["Pedido", "USD 1.250.000", "Documento de 23 páginas y una sesión de trabajo"], ["Pedido", "USD 1.000.000, con USD 687.500 por cerrar", "Documento de 16 páginas"],
-    ["Pico de financiamiento", "USD 865.813, con USD 275.553 de contingencia", "Modelo de la empresa"], ["Necesidad real", "USD 897.830", "Pico más el hueco de cierre de 2026"]] }],
+    ["Pedido", "USD 900.000", "Documento de 23 páginas y una sesión de trabajo"], ["Pedido", "USD 720.000, con USD 495.000 por cerrar", "Documento de 16 páginas"],
+    ["Pico de financiamiento", "USD 623.385, con USD 198.398 de contingencia", "Modelo de la empresa"], ["Necesidad real", "USD 646.438", "Pico más el hueco de cierre de 2026"]] }],
    puntos: { t: "Lo que hay que leer junto a la caja", items: [
-    { b: "La obligación de USD 312.500.", d: "Son 6,6 veces la caja y 10,6 veces lo que está en cuentas de la empresa. Se examina en Capital." },
+    { b: "La obligación de USD 225.000.", d: "Son 6,6 veces la caja y 10,6 veces lo que está en cuentas de la empresa. Se examina en Capital." },
     { b: "Una fila sin rótulo.", d: "El 38,6% de la liquidez reportada viene de una fila sin rótulo en los tres libros de gasto." },
     { b: "Gasto de equipo comercial, no de laboratorio.", d: "En 2026 va 43,61% a gente y 2,77% a investigación y laboratorio, 15,7 dólares de nómina por cada dólar de laboratorio. Servicios profesionales y desarrollo comercial suman 46%." },
-    { b: "Founders sin relación laboral.", d: "Lucía y Tomás son prestadores de USD 2.500 al mes, sin horas ni exclusividad. Entre enero y julio de 2026 Lucía recibió USD 32.505,61 y Tomás USD 15.000,00, contra USD 17.500 del contrato, sin adenda que lo explique." }] },
-   calls: [{ tipo: "bad", t: "Lo que falta cerrar no cubre el pico", p: "Los USD 687.500 por cerrar quedan debajo del pico de USD 865.813. La holgura sin explicar del pedido es de unos USD 102.500 si es de 1 millón y de unos USD 352.500 si es de 1,25 millones." }],
+    { b: "Founders sin relación laboral.", d: "Lucía y Tomás son prestadores de USD 1.800 al mes, sin horas ni exclusividad. Entre enero y julio de 2026 Lucía recibió USD 23.404,04 y Tomás USD 10.800,00, contra USD 12.600 del contrato, sin adenda que lo explique." }] },
+   calls: [{ tipo: "bad", t: "Lo que falta cerrar no cubre el pico", p: "Los USD 495.000 por cerrar quedan debajo del pico de USD 623.385. La holgura sin explicar del pedido es de unos USD 73.800 si son 720 mil y de unos USD 253.800 si es de 900 mil." }],
    nota: "No dice que la empresa esté mal administrada. La estructura de gasto es coherente con estar pre-revenue. Dice que la capacidad de ejecución que asume el plan de 2027 no tiene historia de costo real."
   },
   5: {
@@ -103,31 +103,31 @@ var STRUCT = {
    tesis: "Hoy la ronda no se puede ejecutar. No hay acciones para emitir hasta enmendar el Certificate, y esa enmienda necesita la misma firma que el veto de NORTEX.",
    figs: [
     { k: "Uso de fondos", v: "Desagregado", n: "I+D 45,04%, salida al mercado 14,99%, plataforma 21,23%, y un «IP 20%» que en realidad son dos tercios impuestos.", stack: [["I+D", 45.04, "var(--azul)"], ["Plataforma", 21.23, "var(--tealB)"], ["«IP», dos tercios impuestos", 18.74, "var(--sxD)"], ["Mercado", 14.99, "var(--mint)"]] },
-    { k: "Propiedad intelectual", v: "USD 87.750", n: "en 24 meses, contra USD 200.000 a 250.000 que los founders dicen que cuestan las fases nacionales. Entre 2,3 y 2,9 veces menos.", bars: [{ l: "Presupuesto", v: 87.75, t: "87,8k", c: "y" }, { l: "Costo declarado", v: 250, lo: 200, t: "200 a 250k", c: "n" }] },
-    { k: "Financiamiento", v: "USD 178.313", n: "de brecha aun en el mejor escenario. Faltan USD 687.500 por cerrar y el pico que proyecta el modelo es USD 865.813.", bars: [{ l: "Por cerrar", v: 687.5, t: "687,5k", c: "y" }, { l: "Pico del modelo", v: 865.81, t: "865,8k", c: "n" }] }
+    { k: "Propiedad intelectual", v: "USD 63.180", n: "en 24 meses, contra USD 144.000 a 180.000 que los founders dicen que cuestan las fases nacionales. Entre 2,3 y 2,9 veces menos.", bars: [{ l: "Presupuesto", v: 63.18, t: "63,2k", c: "y" }, { l: "Costo declarado", v: 180, lo: 144, t: "144 a 180k", c: "n" }] },
+    { k: "Financiamiento", v: "USD 128.385", n: "de brecha aun en el mejor escenario. Faltan USD 495.000 por cerrar y el pico que proyecta el modelo es USD 623.385.", bars: [{ l: "Por cerrar", v: 495, t: "495k", c: "y" }, { l: "Pico del modelo", v: 623.39, t: "623,4k", c: "n" }] }
    ],
    tablas: [{ t: "El paquete de NORTEX, derecho por derecho", rows: [
     ["Veto", "Sin umbral, sobre emitir cualquier valor a un tercero y sobre enmendar el Certificate o los Bylaws"], ["Acciones libres", "Cero. La única clase que existe es Common Stock"],
-    ["Obligación contingente", "USD 312.500 en efectivo, a su sola discreción, ante cualquier desacuerdo no unánime. Son 6,6 veces la caja"], ["Mejor término", "Corre en un solo sentido, a favor de NORTEX"],
+    ["Obligación contingente", "USD 225.000 en efectivo, a su sola discreción, ante cualquier desacuerdo no unánime. Son 6,6 veces la caja"], ["Mejor término", "Corre en un solo sentido, a favor de NORTEX"],
     ["Compra en rondas futuras", "Sin plazo de ejercicio ni umbral, y sobrevive a la conversión de sus SAFE"], ["Observador en el board", "Con todos los materiales y permiso expreso para invertir en competidores"],
-    ["Indemnidad", "Sin tope de monto"], ["Cesión", "NORTEX cede su posición con solo avisar, la compañía necesita su permiso para ceder la suya"], ["Gasto dirigido", "Puede dirigir hasta USD 62.500 del gasto, con obligación de la empresa de obedecer"]] }],
+    ["Indemnidad", "Sin tope de monto"], ["Cesión", "NORTEX cede su posición con solo avisar, la compañía necesita su permiso para ceder la suya"], ["Gasto dirigido", "Puede dirigir hasta USD 45.000 del gasto, con obligación de la empresa de obedecer"]] }],
    calls: [
-    { tipo: "bad", t: "El hallazgo más caro", p: "Los acuerdos con los dos founders se firmaron veintinueve días después del Side Letter, sin consentimiento escrito de NORTEX. Bajo los tres SAFE, cualquier incumplimiento del Side Letter es un evento de disolución sin período de cura, y dispara el mismo cobro de USD 312.500 por una vía independiente." },
+    { tipo: "bad", t: "El hallazgo más caro", p: "Los acuerdos con los dos founders se firmaron veintinueve días después del Side Letter, sin consentimiento escrito de NORTEX. Bajo los tres SAFE, cualquier incumplimiento del Side Letter es un evento de disolución sin período de cura, y dispara el mismo cobro de USD 225.000 por una vía independiente." },
     { tipo: "lev", t: "La única palanca", p: "NORTEX tampoco puede convertir sus propios instrumentos sin esa misma enmienda. El bloqueo es mutuo, y la negociación arranca ahí, con un paquete único de consentimiento y no por partes." }],
    nota: "No describe founders que no responden preguntas básicas. En la sesión de trabajo respondieron con números en vivo."
   },
   1: {
    tesis: "El cap pedido está 20% por encima de lo que soporta el plan. Es una diferencia negociable, no un bloqueo, y la conversación con NORTEX es el momento de discutirla.",
    figs: [
-    { k: "Cap pedido", v: "USD 6,875M", n: "post money. Queda dentro del rango de entrada de LUCHA, de USD 3 a 8 millones." },
-    { k: "Lo que soporta el plan", v: "USD 5,706M", n: "es el precio máximo defendible. El pedido queda USD 1.168.750 por encima.", bars: [{ l: "Soporta el plan", v: 5.706, t: "5,706M", c: "y" }, { l: "Pedido", v: 6.875, t: "6,875M", c: "n" }] },
-    { k: "El salto", v: "5,5 veces", n: "de USD 1,25M el 29 de enero de 2026 a USD 6,875M en el material de la ronda, en poco más de siete meses, con cero ingreso nuevo y un solo hito duro, la solicitud de patente de julio." }
+    { k: "Cap pedido", v: "USD 4,95M", n: "post money. Queda dentro del rango de entrada de LUCHA, de USD 3 a 8 millones." },
+    { k: "Lo que soporta el plan", v: "USD 4,109M", n: "es el precio máximo defendible. El pedido queda USD 841.500 por encima.", bars: [{ l: "Soporta el plan", v: 4.109, t: "4,109M", c: "y" }, { l: "Pedido", v: 4.95, t: "4,95M", c: "n" }] },
+    { k: "El salto", v: "5,5 veces", n: "de USD 0,9M el 29 de enero de 2026 a USD 4,95M en el material de la ronda, en poco más de siete meses, con cero ingreso nuevo y un solo hito duro, la solicitud de patente de julio." }
    ],
-   tablas: [{ t: "Las dos cuentas del precio", head: ["Cuenta", "Techo", "NORTEX queda en"], rows: [["Material de la ronda", "USD 6.875.000", "4,55%"], ["Los tres SAFE firmados", "USD 1.250.000", "25,00%"]] }],
+   tablas: [{ t: "Las dos cuentas del precio", head: ["Cuenta", "Techo", "NORTEX queda en"], rows: [["Material de la ronda", "USD 4.950.000", "4,55%"], ["Los tres SAFE firmados", "USD 900.000", "25,00%"]] }],
    calls: [
-    { tipo: "ok", t: "Resuelto el 12 de septiembre", p: "Polímera contestó por escrito que los tres SAFE se quedan a su techo contractual y que los USD 312.500 no se recalculan. Vale la cuenta de los contratos, NORTEX en 25,00%, y la del deck queda retirada. La cláusula de mejor término corre en un solo sentido y no sube el techo de nadie." },
+    { tipo: "ok", t: "Resuelto el 12 de septiembre", p: "Polímera contestó por escrito que los tres SAFE se quedan a su techo contractual y que los USD 225.000 no se recalculan. Vale la cuenta de los contratos, NORTEX en 25,00%, y la del deck queda retirada. La cláusula de mejor término corre en un solo sentido y no sube el techo de nadie." },
     { tipo: "info", t: "Por qué el múltiplo no ayuda", p: "Contra el ingreso de los últimos doce meses no se puede calcular, el denominador es cero. Contra el ingreso proyectado es alto al precio pedido y bajo al contratado, pero ese ingreso no tiene contrato firmado detrás, así que describe una promesa." }],
-   nota: "No dice que USD 6,875M sea descalificante. Lo anómalo es el salto, y USD 1,25M es el único precio que un tercero pagó de verdad, tres veces en dieciocho meses."
+   nota: "No dice que USD 4,95M sea descalificante. Lo anómalo es el salto, y USD 0,9M es el único precio que un tercero pagó de verdad, tres veces en dieciocho meses."
   },
   2: {
    tesis: "Queda una sola cuenta del cap table y los founders retienen 67,50% combinado. Lo que sigue pendiente es que el 100% de su equity está sin vestear.",
@@ -140,14 +140,14 @@ var STRUCT = {
     { b: "El rol de Martín Rojas.", d: "Tiene tres rótulos en tres documentos, «Board &amp; Co-Founder», «Co-founder Advisor» y «Board Member», y el board tiene un solo asiento que ocupa Tomás. Es investigador titular de tiempo completo de la UNV. Si su 2,70% fuera una posición inactiva, el combinado de founders baja a 64,80%." },
     { b: "Sin pacto entre socios.", d: "No existe acuerdo de accionistas, de voto ni pacto de socios entre los tres, y no hay board consent posterior a agosto de 2024. La autorización de los dos SAFE más recientes no está documentada." },
     { b: "Acceso desigual a la información.", d: "Los founders renunciaron a sus derechos de inspección de libros y NORTEX mantiene derechos de información contractuales. Correría en contra de LUCHA si firmara la misma renuncia." }] },
-   calls: [{ tipo: "ok", t: "Cerrado el 12 de septiembre", p: "Polímera entregó el cap table en sus dos formas, legal y as-converted, y confirmó por escrito que ningún acuerdo reemplaza el techo contractual de USD 1.250.000 de NORTEX." }]
+   calls: [{ tipo: "ok", t: "Cerrado el 12 de septiembre", p: "Polímera entregó el cap table en sus dos formas, legal y as-converted, y confirmó por escrito que ningún acuerdo reemplaza el techo contractual de USD 900.000 de NORTEX." }]
   },
   3: {
    tesis: "El plan hacia la Serie A está bien construido y le falta la lista que lo sostiene. No hay una sola conversación documentada con un fondo seed o de Serie A.",
    figs: [
     { k: "Horizonte de la ronda", v: "18 a 24 meses", n: "para llegar a una Serie A con tracción comercial, con hitos por fase para 2026, 2027 y 2028." },
     { k: "Hitos de 2026", v: "Atrasados", n: "Dos o más acuerdos de desarrollo contra cero reales, cuatro o más pruebas de concepto contra cero firmadas. El único cumplido es la solicitud de patente de julio." },
-    { k: "Lista de fondos", v: "Cero", n: "La construye un contratista de diez horas semanales por USD 1.125 al mes, con contrato que vence el 3 de noviembre de 2026, dieciocho días antes de la caja en cero." }
+    { k: "Lista de fondos", v: "Cero", n: "La construye un contratista de diez horas semanales por USD 810 al mes, con contrato que vence el 3 de noviembre de 2026, dieciocho días antes de la caja en cero." }
    ],
    nota: "No dice que no vayan a levantar. Dice que el plan existe y la lista para ejecutarlo todavía no."
   },
@@ -173,8 +173,8 @@ var STRUCT = {
     { k: "SOM", v: "USD 3 a 5M", n: "tarifa y regalía sobre una cartera de formulaciones licenciadas, más un par de millones de honorarios de desarrollo." }
    ],
    puntos: { t: "Lo que pesa contra la empresa aunque el tamaño alcance", items: [
-    { b: "Tres estimaciones que no coinciden.", d: "La más alta, USD 170 millones al año, supone USD 250 mil de regalía anual por producto. El propio modelo dice que un producto maduro factura alrededor de USD 1,25 millones, cinco veces menos. Corregido, baja a unos USD 57 millones." },
-    { b: "Una tarifa que no está sobre la mesa.", d: "La cuenta usa USD 50 mil por proyecto, 3,6 a 3,8 veces lo que los clientes ofrecen hoy, entre USD 13.125 y 13.750 por módulo inicial." },
+    { b: "Tres estimaciones que no coinciden.", d: "La más alta, USD 170 millones al año, supone USD 180 mil de regalía anual por producto. El propio modelo dice que un producto maduro factura alrededor de USD 900 mil, cinco veces menos. Corregido, baja a unos USD 57 millones." },
+    { b: "Una tarifa que no está sobre la mesa.", d: "La cuenta usa USD 36 mil por proyecto, 3,6 a 3,8 veces lo que los clientes ofrecen hoy, entre USD 9.450 y 9.900 por módulo inicial." },
     { b: "El segmento con la base de cobro más flaca.", d: "Los inoculantes se quedan con 13% del valor del mercado brasileño de bioinsumos y cubren 40% de la superficie tratada, según la asociación agroindustrial de Brasil. La regalía se cobra sobre valor y no sobre hectáreas." }] },
    calls: [{ tipo: "info", t: "Por qué M-23", p: "Las columnas originales están escritas en dólares de producto terminado, y una empresa que vende una capa dentro del producto de otro no llegaba a verde ejecutara como ejecutara. Antes de M-23 esta subvariable se reportaba en banda de 32 a 55. Está calibrada con este solo caso y hay que correrla contra los casos cerrados antes de aplicarla a otro." }]
   },
@@ -189,7 +189,7 @@ var STRUCT = {
     { b: "CampoMax.", d: "Opera una planta propia de biológicos de 22.000 metros cuadrados en Estados Unidos, compró Nexa Microbials e integró la colección de cepas de Helvetia Pharma." },
     { b: "Rhein Agro.", d: "Firmó con Verdana Bio un acuerdo que paga por hitos de eficacia, seguridad y manufacturabilidad, dentro de un programa de descubrimiento con catálogo propio y no como servicio de formulación contratado por separado." }] },
    calls: [
-    { tipo: "bad", t: "El cuello de botella real", p: "La aprobación de biopesticidas toma de siete a nueve años en la Unión Europea y de dos a tres en América, y la ley brasileña que la empresa presenta como viento de cola tiene su implementación trabada. Una tarifa de unos USD 37,5 mil no mueve la aguja contra un desarrollo de biológico de USD 25 millones." },
+    { tipo: "bad", t: "El cuello de botella real", p: "La aprobación de biopesticidas toma de siete a nueve años en la Unión Europea y de dos a tres en América, y la ley brasileña que la empresa presenta como viento de cola tiene su implementación trabada. Una tarifa de unos USD 27 mil no mueve la aguja contra un desarrollo de biológico de USD 25 millones." },
     { tipo: "bad", t: "El capital no fluye hacia este modelo", p: "El financiamiento global de agrifoodtech quedó plano en 2025, con 12% menos rondas. AgroGlobal, la contraparte más avanzada, se divide en dos compañías públicas en el segundo semestre de 2026, justo cuando Polímera necesita convertir su acuerdo de evaluación en contrato." }],
    nota: { t: "La lectura.", p: "El mercado ya adoptó biológicos en superficie y todavía no en presupuesto. Es bueno para el volumen del que licencia la tecnología y malo para la regalía, que se cobra sobre valor." }
   },

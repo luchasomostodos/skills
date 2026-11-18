@@ -26,7 +26,7 @@ No hay competencia directa alta, así que no corresponde escalar al sponsor por 
 | Caso | Qué hace | Relación con Micelia | Lectura |
 |---|---|---|---|
 | Selva Bio | Proteínas para cultivos, Argentina y Uruguay. Pacto Luchante en curso | Nortex es inversionista mayoritario de Selva y entró con cap de USD 1 millón. Micelia tiene instrumentos previos con cap de USD 640 mil (Q2 B1, fila R03) | Mismo inversionista y posiblemente el mismo tipo de papel. Si las cláusulas son las mismas, el Fondo ya negoció con ellas una vez |
-| Polímera | Bioinsumos con microorganismos, Argentina. PASS el 14-sep | Nortex tenía 25%, veto escrito sobre emitir cualquier valor a terceros y una obligación contingente de USD 312,5 mil por desacuerdo. Fue la razón principal del no | Riesgo directo de repetición. Ver abajo |
+| Polímera | Bioinsumos con microorganismos, Argentina. PASS el 14-sep | Nortex tenía 25%, veto escrito sobre emitir cualquier valor a terceros y una obligación contingente de USD 225 mil por desacuerdo. Fue la razón principal del no | Riesgo directo de repetición. Ver abajo |
 | Neuma | Biotech chilena, hongos y levaduras editados para neuroplastógenos. EL light | Misma plataforma de base (fermentación fúngica), mercado distinto (nutracéutico y farma). Su holding se llama Micelab SpA, sin relación con Micelia | Sin conflicto. Cuenta para la concentración |
 | Biomente | Biomateriales compostables de residuos agroindustriales, México | El documento vivo agrupa a Refugio, Biomente y Micelia como biomateriales e ingredientes | Sin conflicto |
 | Fuego Energía | Pirólisis y remoción de carbono, Ecuador | Clima, sin cruce de producto ni de cliente | Sin conflicto |
@@ -43,7 +43,7 @@ Lo que se sabía antes de leer el data room.
 |---|---|
 | Nortex invirtió USD 160 mil iniciales y USD 80 mil adicionales en Micelia, camada 2022 | Acta de Esteban Ferraro, 5-oct |
 | Micelia tiene instrumentos previos con cap de USD 640 mil | Doc de LUCHA del 24-sep, B1 |
-| En Polímera, Nortex tenía veto sin umbrales sobre emitir cualquier valor a terceros y USD 312,5 mil de obligación contingente por desacuerdo no unánime. La empresa no quiso reabrir el acuerdo y LUCHA dijo que no | Memoria del caso Polímera, memo de comité del 14-sep |
+| En Polímera, Nortex tenía veto sin umbrales sobre emitir cualquier valor a terceros y USD 225 mil de obligación contingente por desacuerdo no unánime. La empresa no quiso reabrir el acuerdo y LUCHA dijo que no | Memoria del caso Polímera, memo de comité del 14-sep |
 | En Selva Bio, una de las condiciones del comité fue una reunión con Nortex | Contexto Portafolio, sección 5 |
 | En Notion hay una tarea del 10-sep, "Consultar si inversiones deben ser revisadas por Nortex (Micelia)", marcada Hecho y sin contenido | `<url-notion>` |
 
